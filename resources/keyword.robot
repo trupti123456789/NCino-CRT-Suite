@@ -54,5 +54,5 @@ DeleteRelationship
 Generate Unique Name
     [Arguments]    ${base_name}
     ${ts}=    Get Time    epoch
-   ${unique}=    Catenate    SEPARATOR=_    item1=${base_name}    item2=${ts}
+   ${unique}=     Catenate    _    ${base_name}    ${ts}
     [Return]    ${unique}     
