@@ -37,6 +37,91 @@ Data
 
 
 
-Adding Relationships
+ Adding Relationships
+    Relationships
+    # Add a new household relationship
+    ClickText          New                         anchor=Import
+    Use Modal          On
+    ClickText          Household
+    ClickText          Next
+    TypeText           Relationship Name           ${Name}
+    Picklist           Type                        ${Type}
+    ClickText          Save                        partial_match=False
+    Run Keyword        Wait
+
+    # Add a new business relationship
+    ClickText          Relationships               partial_match=False
+    ClickText          New                         anchor=Import
+    Run Keyword        Wait
+    Use Modal          On
+    ClickText          Business
+    Run Keyword        Wait
+    ClickText          Next
+    TypeText           Relationship Name           ${Name1}
+    Picklist           Type                        ${Type1}
+    ClickText          Save                        partial_match=False
+
+    # Add a new individual relationship
+    ClickText          Relationships
+    ClickText          New                         anchor=Import
+    Run Keyword        Wait
+    Use Modal          On
+    ClickText          Individual
+    Run Keyword        Wait
+    ClickText          Next
+    TypeText           Relationship Name           ${Name2}
+    Picklist           Type                        ${Type2}
+    ClickText          Save                        partial_match=False
+
+    # Create a connection for the household relationship
+    ClickText          Relationships
+    ClickText          ${Name}
+    ClickText          Related
+    ClickText          Connections
+    Use Modal          On
+    ClickText          New
+    Use Table          Connected Relationship
+    ClickCell          r1c1
+    TypeText           Connected Relationship      ${Name1}
+    Drop Down          Role                        ${Role}
+    ClickText          Save
+    Run Keyword        Wait
+
+    # Create a connection for the business relationship
+    ClickText          Related
+    ClickText          Connections
+    Use Modal          On
+    ClickText          New
+    Use Table          Connected Relationship
+    ClickCell          r1c1
+    TypeText           Connected Relationship      ${Name2}
+    Drop Down          Role                        ${Role}
+    ClickText          Save
+
+    # Create a connection for the individual relationship
+    ClickText          Relationships
+    ClickText          ${Name2}
+    ClickText          Related
+    ClickText          Connections
+    Use Modal          On
+    ClickText          New
+    Use Table          Connected Relationship
+    ClickCell          r1c1
+    TypeText           Connected Relationship      ${Name2}
+    Drop Down          Role                        ${Role1}
+    ClickText          Save
+
+    # Verify the relationship tree for household
+    ClickText          Relationships
+    ClickText          ${Name}
+    ClickText          Exposure
+    VerifyText         Connection Tree
+
+    # Verify the relationship tree for business
+    ClickText          Relationships
+    ClickText          ${Name1}
+    ClickText          Exposure
+    VerifyText         Connection Tree
+
 
  
