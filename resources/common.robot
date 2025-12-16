@@ -7,8 +7,8 @@ Suite Setup                     Open Browser                about:blank         
 ${BROWSER}                      chrome
 ${home_url}                     ${login_url}/lightning/page/home
 ${login_url}                   https://copadotestenvironment--qa.sandbox.lightning.force.com/
-${Username}                     satish.r@cloudfulcrum.com.copadoqa
-${password}                     ncino@1234
+${Username}                     kheidt@copadoncinohub.com
+${password}                     CopadoNcino1!
 ${secret}                       QIKMG7VHQ4JJSWXRD7WULZHV23ZZFPDT
 
 
