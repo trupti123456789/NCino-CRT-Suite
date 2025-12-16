@@ -34,7 +34,7 @@ Data
 
     [Return]         ${Data}
 
-Adding Relationships
+ Adding Relationships
     [Arguments]      ${Data}
     Relationships
     # Add a new household relationship
