@@ -78,7 +78,6 @@ Data
     # Create a connection for the household relationship
     ClickText           Relationships
     ClickText           ${unique_name1}
-    ClickText           Related
     ClickText           Connections
     Use Modal           On
     ClickText           New
@@ -90,7 +89,6 @@ Data
     Run Keyword         Wait
 
     # Create a connection for the business relationship
-    ClickText           Related
     ClickText           Connections
     Use Modal           On
     ClickText           New
@@ -103,7 +101,6 @@ Data
     # Create a connection for the individual relationship
     ClickText           Relationships
     ClickText           ${unique_name2}
-    ClickText           Related
     ClickText           Connections
     Use Modal           On
     ClickText           New
