@@ -9,6 +9,8 @@ ${home_url}                     ${login_url}/lightning/page/home
 ${login_url}                   https://copadotestenvironment--qa.sandbox.lightning.force.com/
 ${Username}                     satish.r@cloudfulcrum.com.copadoqa
 ${password}                     ncino@1234
+${secret}                       QIKMG7VHQ4JJSWXRD7WULZHV23ZZFPDT
+
 
 *** Keywords ***
 Setup Browser   
@@ -25,6 +27,9 @@ Login
     TypeText                    Username                    ${username}                 delay=1
     TypeText                    Password                    ${password}
     ClickText                   Log In
+    ${mfa_code}=                GetOTP                      ${username}                 ${secret}
+    TypeText                    Verification Code           ${mfa_code}
+    ClickText                   Verify
 
 Home
     [Documentation]             Navigate to homepage, login if needed
