@@ -8,6 +8,7 @@ ${BROWSER}                      chrome
 ${home_url}                     ${login_url}/lightning/page/home
 ${login_url}                https://copadohub.my.salesforce.com/
 ${Username}                     kheidt@copadoncinohub.com
+
 ${password}                     CopadoNcino1!
 
 
