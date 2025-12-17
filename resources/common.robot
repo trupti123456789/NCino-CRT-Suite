@@ -7,7 +7,7 @@ Suite Setup                     Open Browser                about:blank         
 ${BROWSER}                      chrome
 ${home_url}                     ${login_url}/lightning/page/home
 ${login_url}                 https://copadotestenvironment--qa.sandbox.lightning.force.com/lightning/settings/personal/AdvancedUserDetails/home
-${Username}                     kheidt@copadoncinohub.com
+${Username}                     kheidt@copadoncinoenv1qa.com
 ${password}                     CopadoNcino1!
 
 
