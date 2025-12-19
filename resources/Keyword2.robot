@@ -34,8 +34,12 @@ Data
     [Return]                    ${RelationshipData}
 
  Adding Relationships
+  [Documentation]      appstate to go directly to nCino / Relationships and create Onboarding Customer
     [Arguments]                 ${Data}
-    Relationships
+    Home
+    LaunchApp           Relationships
+    ClickText           Relationships
+    VerifyPageHeader    Relationships
     # Add a new household relationship
     ClickText                   New                         anchor=Import
     Use Modal                   On
