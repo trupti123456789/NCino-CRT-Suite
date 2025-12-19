@@ -34,7 +34,7 @@ Data
     [Return]                    ${RelationshipData}
 
  Adding Relationships
-  [Documentation]      appstate to go directly to nCino / Relationships and create Onboarding Customer
+  [Documentation]      appstate to go directly to nCino / Relationships and create Onboarding
     [Arguments]                 ${Data}
     Home
     LaunchApp           Relationships
