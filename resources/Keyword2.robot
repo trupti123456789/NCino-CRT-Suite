@@ -33,7 +33,7 @@ Data
 
     [Return]                    ${RelationshipData}
 
- Adding Relationships
+ Adding Relationships for Customer Onboarding
   [Documentation]      appstate to go directly to nCino / Relationships and create Onboarding
     [Arguments]                 ${Data}
     Home
