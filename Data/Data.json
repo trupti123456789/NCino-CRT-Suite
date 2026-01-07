@@ -2,7 +2,7 @@
     "data1Relationship": {
       "Relationship Name": "Meta Household",
       "Type": "Household",
-      "Role": "Household Member"
+      "Role": "Parent"
     },
     "data2Relationship":{       
       "Relationship Name": "Facebook",
