@@ -46,8 +46,8 @@ DeleteRelationship
     VerifyText                  Undo
     VerifyNoText                Undo
     ClickText                   Relationships               partial_match=False
-Generate Unique Name
-    [Arguments]    ${base_name}
-    ${ts}=    Get Time    epoch
-    ${unique}=     Catenate    _    ${base_name}    ${ts}
-    [Return]    ${unique}     
+# Generate Unique Name
+#     [Arguments]    ${base_name}
+#     ${ts}=    Get Time    epoch
+#     ${unique}=     Catenate    _    ${base_name}    ${ts}
+#     [Return]    ${unique}     
