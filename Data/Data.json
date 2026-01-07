@@ -7,7 +7,8 @@
     "data2Relationship":{       
       "Relationship Name": "Facebook",
       "Type": "Corporation",
-      "Role": "Company"
+      "Role": "Company",
+      "Contact":"Test Business Contact"
     },
     "data3Relationship":{        
       "Relationship Name": "Mark",
