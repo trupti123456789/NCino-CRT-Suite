@@ -125,6 +125,8 @@ Data
     VerifyText                  Connection Tree
     
     #Create a Contact for Bussiness Relationship
-    
+     ClickText                   Relationships
+    ClickText                   ${Business_User_name}
+
 
 
