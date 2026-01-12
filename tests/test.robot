@@ -19,7 +19,7 @@ Data
     ${data3}=                   Set Variable                ${dataA["data3Relationship"]}
     ${data4}=                   Set Variable                ${dataA["data1DirectDebt"]}
     ${data5}=                   Set Variable                ${dataA["data2IndirectDebt"]}
-            
+
     # Setting variables for relationship data
     ${RelationshipData}=        Create Dictionary
     ...                         Name=${data1["Relationship Name"]}
@@ -31,16 +31,16 @@ Data
     ...                         Contact=${data2["Contact"]}
     ...                         Name2=${data3["Relationship Name"]}
     ...                         Type2=${data3["Type"]}
-    ...                        DebtName1=${data4["Debt Name"]}   
-    ...                        value1=${data4["Principal Balance"]}
-    ...                        Matutitydate1=${data4["Matutitydate"]}  
-    ...                        DebtName2=${data5["Debt Name"]}   
-    ...                        value2=${data5["Principal Balance"]}
-    ...                        Matutitydate2=${data5["Matutitydate"]}          
+    ...                         DebtName1=${data4["Debt Name"]}
+    ...                         value1=${data4["Principal Balance"]}
+    ...                         Matutitydate1=${data4["Matutitydate"]}
+    ...                         DebtName2=${data5["Debt Name"]}
+    ...                         value2=${data5["Principal Balance"]}
+    ...                         Matutitydate2=${data5["Matutitydate"]}
 
     [Return]                    ${RelationshipData}
 
-    
+
  Adding Relationships for Customer Onboarding
     [Documentation]             appstate to go directly to nCino / Relationships and create Onboarding
     [Arguments]                 ${RelationshipData}
@@ -94,21 +94,21 @@ Data
     ClickText                   New
     Use Table                   Connected Relationship
     ClickCell                   r1c1
-    TypeText                    Connected Relationship       ${Business_User_name}
+    TypeText                    Connected Relationship      ${Business_User_name}
     Clicktext                   Role
     Drop Down                   Role                        ${RelationshipData["Role"]}
     ClickText                   Save
     Run Keyword                 Wait
 
-   #  # Create a connection for the business relationship
-   #  ClickText                   Connections
-   #  Use Modal                   On
-   #  ClickText                   New
-   #  Use Table                   Connected Relationship
-   #  ClickCell                   r1c1
-   #  TypeText                    Connected Relationship      ${Business_User_name}
-   #  Drop Down                   Role                        ${RelationshipData["Role"]}
-   #  ClickText                   Save
+    #                           # Create a connection for the business relationship
+    #                           ClickText                   Connections
+    #                           Use Modal                   On
+    #                           ClickText                   New
+    #                           Use Table                   Connected Relationship
+    #                           ClickCell                   r1c1
+    #                           TypeText                    Connected Relationship      ${Business_User_name}
+    #                           Drop Down                   Role                        ${RelationshipData["Role"]}
+    #                           ClickText                   Save
 
     # Create a connection for the individual relationship
     #                           ClickText                   Relationships
@@ -123,19 +123,19 @@ Data
     #                           Drop Down                   Role                        ${RelationshipData["Role1"]}
     #                           ClickText                   Save
 
-    # Verify the Exposer abd create the  debts
+    # Verify the Exposer abd create the                     debts
     ClickText                   Relationships
     ClickText                   ${Household_User_name}
     ClickText                   Exposure
-    ClickText                   Add Direct Debt            
-    TypeText                    Debt Name                  ${RelationshipData["DebtName1"]}
-    TypeText                    Principal Balance            ${RelationshipData["value1"]}
-    TypeText                    Maturity Date              ${RelationshipData["Matutitydate1"]}
+    ClickText                   Add Direct Debt
+    TypeText                    Debt Name                   ${RelationshipData["DebtName1"]}
+    TypeText                    Principal Balance           ${RelationshipData["value1"]}
+    TypeText                    Maturity Date               ${RelationshipData["Matutitydate1"]}
     ClickText                   Save
     ClickText                   Add Indirect Debt
-    TypeText                    Debt Name                    ${RelationshipData["DebtName2"]}
+    TypeText                    Debt Name                   ${RelationshipData["DebtName2"]}
     TypeText                    Principal Balance           ${RelationshipData["value2"]}
-    TypeText                    Maturity Date              ${RelationshipData["Matutitydate2"]}
+    TypeText                    Maturity Date               ${RelationshipData["Matutitydate2"]}
     ClickText                   Save
     RefreshPage
     VerifyText                  ${Household_User_name}
