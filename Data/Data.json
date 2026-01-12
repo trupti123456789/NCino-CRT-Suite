@@ -13,5 +13,13 @@
     "data3Relationship":{        
       "Relationship Name": "Mark",
       "Type": "Individual"
+    },
+    "data1DirectDebt":{
+       "Debt Name": "Direct Debt"
+       "Principal Balance":"234566"
+    },
+    "data2IndirectDebt":{
+       "Debt Name": "Indirect Debt"
+       "Principal Balance":"237866"
     }
 }
