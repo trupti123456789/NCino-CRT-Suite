@@ -6,10 +6,11 @@ Suite Setup                     Open Browser                about:blank         
 *** Variables ***
 ${BROWSER}                      chrome
 ${home_url}                     ${login_url}/lightning/page/home
-${login_url}                https://copadotestenvironment--uat.sandbox.lightning.force.com/
-${Username}                     satish.r@cloudfulcrum.com
+${login_url}                https://copadotestenvironmentv2--uat.sandbox.lightning.force.com/
+${Username}                     satishr@copadoncinoenv2uat.com
 ${password}                     ncino@1234
-${secret}                            QIKMG7VHQ4JJSWXRD7WULZHV23ZZFPDT
+${secret}                           EXPK7N6N4MKSBFCHF3MMN2F6BP6YHVCG
+
 
 *** Keywords ***
 Setup Browser   
