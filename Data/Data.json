@@ -15,11 +15,11 @@
       "Type": "Individual"
     },
     "data1DirectDebt":{
-       "Debt Name": "Direct Debt"
+       "Debt Name": "Direct Debt",
        "Principal Balance":"234566"
     },
     "data2IndirectDebt":{
-       "Debt Name": "Indirect Debt"
+       "Debt Name": "Indirect Debt",
        "Principal Balance":"237866"
     }
 }
