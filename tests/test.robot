@@ -130,12 +130,12 @@ Data
     ClickText                   Add Direct Debt
     TypeText                    Debt Name                   ${RelationshipData["DebtName1"]}
     TypeText                    Principal Balance           ${RelationshipData["value1"]}
-    TypeText                    Maturity Date               ${RelationshipData["Matutitydate1"]}
+    TypeText                    Maturity Date               ${RelationshipData["Maturitydate1"]}
     ClickText                   Save
     ClickText                   Add Indirect Debt
     TypeText                    Debt Name                   ${RelationshipData["DebtName2"]}
     TypeText                    Principal Balance           ${RelationshipData["value2"]}
-    TypeText                    Maturity Date               ${RelationshipData["Matutitydate2"]}
+    TypeText                    Maturity Date               ${RelationshipData["Maturitydate2"]}
     ClickText                   Save
     RefreshPage
     VerifyText                  ${Household_User_name}
