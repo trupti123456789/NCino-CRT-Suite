@@ -33,10 +33,9 @@ Data
     ...                         Type2=${data3["Type"]}
     ...                         DebtName1=${data4["Debt Name"]}
     ...                         value1=${data4["Principal Balance"]}
-    ...                         Maturitydate1=${data4["Maturity Date"]}
     ...                         DebtName2=${data5["Debt Name"]}
     ...                         value2=${data5["Principal Balance"]}
-    ...                         Maturitydate2=${data5["Maturity Date"]}
+   
 
     [Return]                    ${RelationshipData}
 
@@ -130,12 +129,12 @@ Data
     ClickText                   Add Direct Debt
     TypeText                    Debt Name                   ${RelationshipData["DebtName1"]}
     TypeText                    Principal Balance           ${RelationshipData["value1"]}
-    TypeText                    Maturity Date               ${RelationshipData["Maturitydate1"]}
+    ClickText                   Principal Balance           
     ClickText                   Save
     ClickText                   Add Indirect Debt
     TypeText                    Debt Name                   ${RelationshipData["DebtName2"]}
     TypeText                    Principal Balance           ${RelationshipData["value2"]}
-    TypeText                    Maturity Date               ${RelationshipData["Maturitydate2"]}
+    ClickText                   Principal Balance
     ClickText                   Save
     RefreshPage
     VerifyText                  ${Household_User_name}
