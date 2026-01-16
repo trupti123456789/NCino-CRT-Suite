@@ -21,13 +21,15 @@ Data
     ${data1}=                   Set Variable                ${dataA["data1Relationship"]}
     ${data2}=                   Set Variable                ${dataA["data2Relationship"]}
     ${data3}=                   Set Variable                ${dataA["data3Relationship"]}
-    ${data4}=                   Set Variable                ${dataA["data1DirectDebt"]}
-    ${data5}=                   Set Variable                ${dataA["data2IndirectDebt"]}
-    ${data6}=                   Set Variable                ${dataA["data1Loan"]}
-    ${data7}=                   Set Variable                ${dataA["data2LoanData"]}
-    ${data8}=                   Set Variable                ${dataA["data1EntityInvolvement"]}
-    ${data9}=                   Set Variable                ${dataA["data1Collateral"]}
-    ${data10}=                  Set Variable                ${dataA["data1Fee"]}
+    ${data4}=                   Set Variable                ${dataA["DirectDebt"]}
+    ${data5}=                   Set Variable                ${dataA["IndirectDebt"]}
+    ${data6}=                   Set Variable                ${dataA["Loan"]}
+    ${data7}=                   Set Variable                ${dataA["LoanData"]}
+    ${data8}=                   Set Variable                ${dataA["EntityInvolvement"]}
+    ${data9}=                   Set Variable                ${dataA["Collateral"]}
+    ${data10}=                  Set Variable                ${dataA["Fee"]}
+    ${data11}=                  Set Variable                ${dataA["RiskRating"]}
+    ${data12}=                  Set Variable                ${dataA["Covenant"]}
 
     # Setting variables for relationship data
     ${RelationshipData}=        Create Dictionary
@@ -60,7 +62,8 @@ Data
     ...                         Secondary_Source_of_Repayment=${data7["Secondary Source of Repayment"]}
     ...                         Primary_Source_of_Repayment=${data7["Primary Source of Repayment"]}
     ...                         Tertiary_Source_of_Repayment=${data7["Tertiary Source of Repayment"]}
-    ...                         Loan_Assistant=${data7["Loan Assistant"]}
+    ...                         User=${data7["User"]}
+    ...                         Role=${data7["Role"]}
 
     ...                         Borrower_Type=${data8["Borrower Type"]}
     ...                         Contingent_Type=${data8["Contingent Type"]}
@@ -80,6 +83,15 @@ Data
     ...                         Basis_Source=${data10["Basis Source"]}
     ...                         Amount=${data10["Amount"]}
     ...                         Collection_Method=${data10["Collection Method"]}
+      
+    ...                         templates-list=${data11["templates-list"]}  
+    
+    ...                        Category=${data12["Category"]} 
+    ...                        Covenant_Type=${data12["Covenant Type"]} 
+    ...                        Effective_Date=${data12["Effective Date"]} 
+    ...                        Frequency_Template=${data12["Frequency Template"]} 
+    ...                         Grace_Days=${data12["Grace Days"]} 
+    
     [Return]                    ${RelationshipData}
 
 
@@ -236,32 +248,37 @@ Data
 
     TypeText                    Loan Number                 ${RelationshipData["Loan_Number"]}
     ClickText                   --None--                    anchor=Primary Loan Purpose
-    ClickText                   Business Start-Up
-    ClickText                   nCino HQ
+    ClickText                   ${RelationshipData["Primary_Loan_Purpose"]}
     ClickText                   --None--                    anchor=Application Method
-    ClickText                   In-person
+    ClickText                   ${RelationshipData["Application_Method"]}
     ClickText                   --None--                    anchor=Method of Doc Prep
-    ClickText                   Attorney Prepared
+    ClickText                   ${RelationshipData["Method_of_Doc_Prep"]}
     ClickCheckbox               Is Participation            on
-    TypeText                    Prepayment Penalty Description                          Test in progress
+    TypeText                    Prepayment Penalty Description                          ${RelationshipData["Prepayment_Penalty_Description"]}
     ClickText                   --None--                    anchor=Secondary Source of Repayment
-    ClickText                   Cash flow from Operations
+    ClickText                   ${RelationshipData["Secondary_Source_of_Repayment"]}
     ClickText                   --None--                    anchor=Primary Source of Repayment
-    ClickText                   Lease Income
+    ClickText                   ${RelationshipData["Primary_Source_of_Repayment"]}
     ClickText                   --None--                    anchor=Tertiary Source of Repayment
-    ClickText                   Cash flow from Operations
-    ClickText                   Loan Structuring
+    ClickText                   ${RelationshipData["Tertiary_Source_of_Repayment"]}
+    TypeText                    Loan Amount                 7600000
     ClickText                   Save
+    Run Keyword                 Wait
     ClickText                   Loan Structuring
+    VerifyAll                   Loan Information from Details,Loan Calculated Fields
     ClickText                   Continue
     ClickText                   Add New
-    ClickText                   Loan Assistant
-    ClickText                   Satish R
+    UseModal                    On
+    ClickText                   Role
+    TypeText                    Role                        ${RelationshipData["Role"]}
+    ClickText                   ${RelationshipData["Role"]}
+    ClickText                   User
+    TypeText                    User                        ${RelationshipData["User"]}
+    ClickText                   ${RelationshipData["User"]}
     ClickText                   Save                        partial_match=False
+    Run Keyword                 Wait
     ClickText                   Continue
     Run Keyword                 Wait
-
-
     ClickText                   Add Entity Involvement
     ClickCheckbox               Select _                    ${Household_User_name}      on                     partial_match=False
     ClickText                   Add Selected Relationships
@@ -269,53 +286,54 @@ Data
     DropDown                    Contingent Type             ${RelationshipData["Contingent_Type"]}
     TypeText                    Contingent Amount           ${RelationshipData["Contingent_Amount"]}
     ClickText                   Save Entity Involvement
+    Run Keyword                 Wait
     ClickText                   Continue
     ClickText                   Add Collateral
     ClickText                   Add New Collateral
     ClickItem                   Select
     ClickText                   Next                        parent=LIGHTNING-BUTTON
     ClickText                   Next
-    ClickText                   *Type
-    ClickText                   Real Estate
+    UseModal                    On
+    ClickElement                xpath=//button[@aria-label="Type"]//following-sibling::div/lightning-icon//lightning-primitive-icon
+    ClickItem                   ${RelationshipData["Type"]}
     ClickText                   *Subtype
-    ClickText                   1-4 Family
-    TypeText                    Value                       100
-    TypeText                    Collateral Name             TestCollateral
-    TypeText                    City                        USA
-    TypeText                    Description                 Loan for test
+    ClickItem                   ${RelationshipData["Subtype"]}
+    TypeText                    Value                       ${RelationshipData["Value"]}
+    TypeText                    Collateral Name             ${RelationshipData["Collateral_Name"]}
+    TypeText                    City                        ${RelationshipData["City"]}
+    TypeText                    Description                 ${RelationshipData["Description"]}
     ClickText                   Save & Next
+    Run Keyword                 Wait
     ClickText                   Save Pledged Collateral
     ClickCheckbox               Select Item 1               on                          partial_match=False
     ClickText                   Continue
-
-
-    ClickText                   Back
+    ClickText                   Add Fee
     ClickText                   Add Non-Standard Fee
-    DropDown                    Fee Type                    Appraisal
-    DropDown                    Calculation Type            Percentage
-    TypeText                    Percentage                  79
-    DropDown                    Fee Paid By                 Bank Paid
-    DropDown                    Basis Source                Loan Amount
-    TypeText                    Amount                      7900000
-    DropDown                    Collection Method           Financed
+    DropDown                    Fee Type                    ${RelationshipData["Fee_Type"]}
+    DropDown                    Calculation Type            ${RelationshipData["Calculation_Type"]}
+    TypeText                    Percentage                  ${RelationshipData["Percentage"]}
+    DropDown                    Fee Paid By                 ${RelationshipData["Fee_Paid_By"]}
+    DropDown                    Basis Source                ${RelationshipData["Basis_Source"]}
+    TypeText                    Amount                      ${RelationshipData["Amount"]}
+    DropDown                    Collection Method           ${RelationshipData["Collection_Method"]}
     ClickText                   Save
+    Run Keyword                 Wait
     ClickText                   Continue
-
-
-    DropDown                    accounts-list               _ Facebook 1768223476 - Corporation
-    DropDown                    templates-list              Commercial & Industrial
+    ClickText                   Create Risk Rating
+    DropDown                    accounts-list                 ${Business_User_name}     partial_match=True
+    DropDown                    templates-list              ${RelationshipData["templates-list"]}
     ClickText                   Save
-    ClickText                   Calculate and Save
-    ClickText                   Calculate and Save
-    ClickText                   Risk Rating Worksheet
-    ClickText                   Related
-    ClickText                   Loans
-    ClickText                   _ Facebook 1768223476 - Term Loan - $60,000,000.00      parent=DIV
-    ClickText                   Fees
-    ClickText                   Loan Information
-    ClickText                   Show/Hide Navigation Sidebar
-    ClickText                   Show/Hide Navigation Sidebar
-    ClickText                   Loan Structuring
+    Run Keyword                Wait
+    RefreshPage
+    ClickText                  Relationships
+    ClickText                  ${Business_User_name}  
+    ClickText                  Credit Resources      
+    ClickText                  Covenants
+    ClickText                  Create Covenant
+    UseModal                   On
+
+
+
 
     #
 
