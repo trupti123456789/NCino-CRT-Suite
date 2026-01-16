@@ -56,13 +56,14 @@
       "City":"USA",
       "Description":"Loan for test"
     },
-    "data1Fee":{
-      "Fee Type":"Appraisal",
-      "Calculation Type":"Percentage",
-      "Percentage":79,
-      "Fee Paid By":"Bank Paid",
-      "Basis Source":"Loan Amount",
-      "Amount":7900000,
-      "Collection Method":"Financed"
-    } 
+    "data1Fee": {
+  "Fee Type": "Appraisal",
+  "Calculation Type": "Percentage",
+  "Percentage": 79,
+  "Fee Paid By": "Bank Paid",
+  "Basis Source": "Loan Amount",
+  "Amount": 7900000,
+  "Collection Method": "Financed"
+   }
+
 }
