@@ -41,7 +41,8 @@
       "Secondary Source of Repayment":"Cash flow from Operations",
       "Primary Source of Repayment":"Lease Income",
       "Tertiary Source of Repayment":"Lease Income",
-      "Loan Assistant":"Satish R"
+      "Role":"Loan Assistant",
+      "User":"Satish R"
     },
     "data1EntityInvolvement": {
       "Borrower Type": "Borrower",
