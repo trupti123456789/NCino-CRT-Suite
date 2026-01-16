@@ -68,6 +68,7 @@ Data
     ...                         Borrower_Type=${data8["Borrower Type"]}
     ...                         Contingent_Type=${data8["Contingent Type"]}
     ...                         Contingent_Amount=${data8["Contingent Amount"]}
+    ...                         Contingent_Percentage=${data8["Contingent Percentage"]}
 
     ...                         Type=${data9["Type"]}
     ...                         Subtype=${data9["Subtype"]}
@@ -110,7 +111,6 @@ Data
     ClickText                   Next
     ${Household_User_name}=     Generate Unique Name        ${RelationshipData["Name"]}
     TypeText                    Relationship Name           ${Household_User_name}
-    Picklist                    Type                        ${RelationshipData["Type"]}
     ClickText                   Save                        partial_match=False
     Run Keyword                 Wait
 
@@ -150,32 +150,8 @@ Data
     ClickCell                   r1c1
     TypeText                    Connected Relationship      ${Business_User_name}
     Clicktext                   Role
-    Drop Down                   Role                        ${RelationshipData["Role"]}
     ClickText                   Save
     Run Keyword                 Wait
-
-    #                           # Create a connection for the business relationship
-    #                           ClickText                   Connections
-    #                           Use Modal                   On
-    #                           ClickText                   New
-    #                           Use Table                   Connected Relationship
-    #                           ClickCell                   r1c1
-    #                           TypeText                    Connected Relationship      ${Business_User_name}
-    #                           Drop Down                   Role                        ${RelationshipData["Role"]}
-    #                           ClickText                   Save
-
-    # Create a connection for the individual relationship
-    #                           ClickText                   Relationships
-    #                           ClickText                   ${Business_User_name}
-    #                           ClickText                   Connections
-    #                           Use Modal                   On
-    #                           ClickText                   New
-    #                           Use Table                   Connected Relationship
-    #                           ClickCell                   r1c1
-    #                           TypeText                    Connected Relationship      ${Business_User_name}
-    #                           Clicktext                   Role
-    #                           Drop Down                   Role                        ${RelationshipData["Role1"]}
-    #                           ClickText                   Save
 
     # Verify the Exposer abd create the                     debts
     ClickText                   Relationships
@@ -184,19 +160,23 @@ Data
     Run Keyword                 Wait
     ClickText                   Add Direct Debt
     TypeText                    Debt Name                   ${RelationshipData["DebtName1"]}
-    TypeText                    Principal Balance           ${RelationshipData["value1"]}
+    Run Keyword                 Wait
+    ClickText                   Principal Balance
+    TypeText                    *Principal Balance           ${RelationshipData["value1"]}
     ClickText                   Principal Balance
     ClickText                   Save
     ClickText                   Add Indirect Debt
     TypeText                    Debt Name                   ${RelationshipData["DebtName2"]}
-    TypeText                    Principal Balance           ${RelationshipData["value2"]}
+    Run Keyword                 Wait
+    ClickText                   Principal Balance
+    TypeText                    *Principal Balance           ${RelationshipData["value2"]}
     ClickText                   Principal Balance
     ClickText                   Save
     RefreshPage
     VerifyText                  ${Household_User_name}
     ClickText                   Exposure
     ClickText                   Recalculate Exposure
-    Sleep                       10
+    Sleep                       20
     VerifyText                  Total Exposure Summary
 
     #Create a Contact for Bussiness Account
@@ -280,11 +260,12 @@ Data
     ClickText                   Continue
     Run Keyword                 Wait
     ClickText                   Add Entity Involvement
-    ClickCheckbox               Select _                    ${Household_User_name}      on                     partial_match=False
+    ClickCheckbox               Select ${Household_User_name}      on                     partial_match=false
     ClickText                   Add Selected Relationships
     DropDown                    Borrower Type               ${RelationshipData["Borrower_Type"]}
     DropDown                    Contingent Type             ${RelationshipData["Contingent_Type"]}
-    TypeText                    Contingent Amount           ${RelationshipData["Contingent_Amount"]}
+    TypeText                    *Contingent Amount           ${RelationshipData["Contingent_Amount"]}
+    TypeText                    *Contingent Percentage          ${RelationshipData["Contingent_Percentage"]}
     ClickText                   Save Entity Involvement
     Run Keyword                 Wait
     ClickText                   Continue
