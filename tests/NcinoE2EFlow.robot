@@ -26,6 +26,7 @@ E2E_flow
     Add Fee in Loan                                         ${RelationshipData}
     Create Risk Rating in Loan                              ${RelationshipData}
     Add Covenants in Loan                                   ${RelationshipData}
+    Verify Covenant in loan                                 ${RelationshipData}
 
 
 
