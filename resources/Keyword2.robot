@@ -294,12 +294,12 @@ Add Entity Involvement in Loan
     ClickText                   Add Entity Involvement
     ClickCheckbox               Select ${Household_User_name}                           on                     partial_match=false
     ClickCheckbox               Select ${Household_User_name}                           off                    partial_match=false
-    ClickCheckbox               Select ${Household_User_name}                           on                     partial_match=false
+    ClickCheckbox               Select ${Household_User_name}                           on                     partial_match=false    delay=5
     Run Keyword                 Wait
     ClickText                   Add Selected Relationships
     DropDown                    Borrower Type               ${RelationshipData["Borrower_Type"]}
     DropDown                    Contingent Type             ${RelationshipData["Contingent_Type"]}
-    TypeText                    *Contingent Amount          ${RelationshipData["Contingent_Amount"]}
+    TypeText                    *Contingent Amount          ${RelationshipData["Contingent_Amount"]}           delay=5
     ClickText                   Save Entity Involvement
     Run Keyword                 Wait
     ClickText                   Continue
