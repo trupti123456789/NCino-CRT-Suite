@@ -185,10 +185,10 @@ Verify the Exposer abd create the debts
     TypeText                    *Principal Balance          ${RelationshipData["value1"]}
     ClickText                   Principal Balance
     ClickText                   Save
-    ClickText                   Add Indirect Debt
-    TypeText                    Debt Name                   ${RelationshipData["DebtName2"]}
     Run Keyword                 Wait
-    ClickText                   Principal Balance
+    ClickText                   Add Indirect Debt
+    TypeText                    Debt Name                   ${RelationshipData["DebtName2"]}    
+    ClickText                   Principal Balance           delay=5
     TypeText                    *Principal Balance          ${RelationshipData["value2"]}
     ClickText                   Principal Balance
     ClickText                   Save
@@ -376,8 +376,8 @@ Verify Covenant in loan
     Clicktext                   Covenants
     ClickElement                xpath=//button[contains(@title,'COV-')]
     Verifytext                  Category , Covenant Type
-    Verifytext                   ${RelationshipData["Category"]}
-    Verifytext                   ${RelationshipData["Covenant_Type"]}    anchor=Category
+    Verifytext                  ${RelationshipData["Category"]}
+    Verifytext                  ${RelationshipData["Covenant_Type"]}                    anchor=Category
 
 
 
