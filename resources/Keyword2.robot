@@ -300,6 +300,7 @@ Add Entity Involvement in Loan
      UseModal                    On
     DropDown                    Borrower Type               ${RelationshipData["Borrower_Type"]}
     DropDown                    Contingent Type             ${RelationshipData["Contingent_Type"]}
+    ClickText                   *Contingent Amount 
     TypeText                    *Contingent Amount          ${RelationshipData["Contingent_Amount"]}           delay=5
     ClickText                   Save Entity Involvement
     Run Keyword                 Wait
