@@ -371,6 +371,11 @@ Add Covenants in Loan
     ClickText                   ${RelationshipData["Frequency_Template"]}
     TypeText                    Grace Days                  ${RelationshipData["Grace_Days"]}
     ClickText                   Create                      partial_match=False
+Verify Covenant in loan
+  [Arguments]                 ${RelationshipData} 
+  ClickElement                Xpath=//button[contains(@title,'COV-')]  
+     
+
 
 
 
