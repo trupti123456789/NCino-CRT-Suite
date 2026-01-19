@@ -34,7 +34,7 @@ Data
     # Setting variables for relationship data
     ${RelationshipData}=        Create Dictionary
     ...                         Name=${data1["Relationship Name"]}
-    ...                         Type=${data1["Type"]}
+    ...                         Type0=${data1["Type"]}
     ...                         Role=${data1["Role"]}
     ...                         Name1=${data2["Relationship Name"]}
     ...                         Type1=${data2["Type"]}
@@ -140,7 +140,21 @@ Data
     Picklist                    Type                        ${RelationshipData["Type2"]}
     ClickText                   Save                        partial_match=False
 
-    # Create a connection for the household relationship
+ Verify the Relationships  
+    ClickText                   Relationships
+    VerifyText                  ${Individual_User_name}
+    VerifyText                  ${Business_User_name}
+    VerifyText                  ${Household_User_name}
+    ClickText                   ${Household_User_name}
+    VerifyField                Relationship Type    ${RelationshipData["Type0"]}
+    ClickText                   Relationships
+    ClickText                   ${Business_User_name}
+     VerifyField                Relationship Type    ${RelationshipData["Type1"]}
+     ClickText                   Relationships
+    ClickText                   ${Individual_User_name}
+     VerifyField                Relationship Type    ${RelationshipData["Type2"]}
+
+ Create a connection for the household relationship
     ClickText                   Relationships
     ClickText                   ${Household_User_name}
     ClickText                   Connections
@@ -153,7 +167,7 @@ Data
     ClickText                   Save
     Run Keyword                 Wait
 
-    # Verify the Exposer abd create the                     debts
+ Verify the Exposer abd create the debts
     ClickText                   Relationships
     ClickText                   ${Household_User_name}
     ClickText                   Exposure
@@ -180,7 +194,7 @@ Data
     Sleep                       20
     VerifyText                  Total Exposure Summary
 
-    #Create a Contact for Bussiness Account
+ Create a Contact for Bussiness Account
     ClickText                   Relationships
     ClickText                   ${Business_User_name}
     ClickText                   Contacts                    anchor=Credit Actions
@@ -191,14 +205,14 @@ Data
     ClickCheckbox               Primary Contact             on
     ClickText                   Save                        partial_match=False
     Run Keyword                 Wait
-    #Verifying contact creation
+ Verifying contact creation
     ClickText                   ${RelationshipData["Contact"]}
     VerifyField                 Name                        Mr. ${RelationshipData["Contact"]}
     VerifyField                 Relationship Name           ${Business_User_name}       partial_match=true
     Verifytext                  Primary Contact
 
 
-    #Create a Product package for Business Account
+ Create a Product package for Business Account
     ClickText                   Relationships
     ClickText                   ${Business_User_name}
     Clicktext                   New Product Package         anchor=Edit
@@ -210,7 +224,7 @@ Data
     TypeText                    Description                 Test
     ClickText                   Save
 
-    #Create a new Loan
+ Create a new Loan
     ClickText                   Loan Facilities
     ClickText                   Magic Wand: Tools and Actions
     ClickText                   New Facility
@@ -226,7 +240,7 @@ Data
     ClickText                   Loan Information
     VerifyText                  Loan Details
 
-
+ Fill the Loan information
     TypeText                    Loan Number                 ${RelationshipData["Loan_Number"]}
     ClickText                   --None--                    anchor=Primary Loan Purpose
     ClickText                   ${RelationshipData["Primary_Loan_Purpose"]}
@@ -248,6 +262,8 @@ Data
     ClickText                   Loan Structuring
     VerifyAll                   Loan Information from Details,Loan Calculated Fields
     ClickText                   Continue
+     
+ Add Team Member in Loan   
     ClickText                   Add New
     UseModal                    On
     ClickText                   Role
@@ -260,6 +276,8 @@ Data
     Run Keyword                 Wait
     ClickText                   Continue
     Run Keyword                 Wait
+     
+ Add Entity Involvement in Loan   
     ClickText                   Add Entity Involvement
     ClickCheckbox               Select ${Household_User_name}                           on                     partial_match=false
     ClickCheckbox               Select ${Household_User_name}                           off                    partial_match=false
@@ -272,6 +290,8 @@ Data
     ClickText                   Save Entity Involvement
     Run Keyword                 Wait
     ClickText                   Continue
+     
+ Add Collateral in Loan  
     ClickText                   Add Collateral
     ClickText                   Add New Collateral
     ClickItem                   Select
@@ -292,6 +312,8 @@ Data
     Run Keyword                 Wait
     ClickCheckbox               Select Item 1               on                          partial_match=False
     ClickText                   Continue
+     
+ Add Fee in Loan  
     ClickText                   Add Fee
     ClickText                   Add Non-Standard Fee
     DropDown                    Fee Type                    ${RelationshipData["Fee_Type"]}
@@ -304,6 +326,8 @@ Data
     ClickText                   Save
     Run Keyword                 Wait
     ClickText                   Continue
+     
+ Create Risk Rating in Loan  
     ClickText                   Create Risk Rating
     ClickElement                xpath=//select[@id="accounts-list"]
     DropDown                    accounts-list               ${Business_User_name} - Corporation                partial_match=False
@@ -312,6 +336,8 @@ Data
     ClickText                   Save
     Run Keyword                 Wait
     RefreshPage
+     
+ Add Covenants in Loan   
     ClickText                   Relationships
     ClickText                   ${Business_User_name}
     ClickText                   Credit Resources
