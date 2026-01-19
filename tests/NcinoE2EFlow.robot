@@ -12,7 +12,7 @@ Suite Teardown                  End Suite
 E2E_flow
     ${RelationshipData}=        Data
     Adding Relationships for Customer Onboarding            ${RelationshipData}
-    Verify the Relationships                                  ${RelationshipData}
+    Verify the Relationships                                ${RelationshipData}
     Create a connection for the household relationship      ${RelationshipData}
     Verify the Exposer abd create the debts                 ${RelationshipData}
     Create a Contact for Bussiness Account                  ${RelationshipData}
