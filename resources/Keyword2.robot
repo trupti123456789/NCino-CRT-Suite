@@ -161,14 +161,14 @@ Data
     TypeText                    Debt Name                   ${RelationshipData["DebtName1"]}
     Run Keyword                 Wait
     ClickText                   Principal Balance
-    TypeText                    *Principal Balance           ${RelationshipData["value1"]}
+    TypeText                    *Principal Balance          ${RelationshipData["value1"]}
     ClickText                   Principal Balance
     ClickText                   Save
     ClickText                   Add Indirect Debt
     TypeText                    Debt Name                   ${RelationshipData["DebtName2"]}
     Run Keyword                 Wait
     ClickText                   Principal Balance
-    TypeText                    *Principal Balance           ${RelationshipData["value2"]}
+    TypeText                    *Principal Balance          ${RelationshipData["value2"]}
     ClickText                   Principal Balance
     ClickText                   Save
     Run Keyword                 Wait
@@ -260,12 +260,14 @@ Data
     ClickText                   Continue
     Run Keyword                 Wait
     ClickText                   Add Entity Involvement
-    ClickCheckbox               Select ${Household_User_name}      on                     partial_match=false
+    ClickCheckbox               Select ${Household_User_name}                           on                     partial_match=false
+    ClickCheckbox               Select ${Household_User_name}                           off                    partial_match=false
+    ClickCheckbox               Select ${Household_User_name}                           on                     partial_match=false
     Run Keyword                 Wait
     ClickText                   Add Selected Relationships
     DropDown                    Borrower Type               ${RelationshipData["Borrower_Type"]}
     DropDown                    Contingent Type             ${RelationshipData["Contingent_Type"]}
-    TypeText                    *Contingent Amount           ${RelationshipData["Contingent_Amount"]}
+    TypeText                    *Contingent Amount          ${RelationshipData["Contingent_Amount"]}
     ClickText                   Save Entity Involvement
     Run Keyword                 Wait
     ClickText                   Continue
@@ -286,6 +288,7 @@ Data
     ClickText                   Save & Next
     Run Keyword                 Wait
     ClickText                   Save Pledged Collateral
+    Run Keyword                 Wait
     ClickCheckbox               Select Item 1               on                          partial_match=False
     ClickText                   Continue
     ClickText                   Add Fee
@@ -301,16 +304,9 @@ Data
     Run Keyword                 Wait
     ClickText                   Continue
     ClickText                   Create Risk Rating
-    ClickText     Relationship 
-    TypeText      accounts-list           ${Business_User_name}                        partial_match=True
-    Sleep        1
-   ClickText    ${Business_User_name}
-   
-
-    DropDown    accounts-list              _ Facebook 1768569619 - Corporation
-    ClickText    Create Risk Rating
-
-    DropDown                    *Relationship               ${Business_User_name}       partial_match=True
+    ClickElement                xpath=//select[@id="accounts-list"]
+    DropDown                    accounts-list               ${Business_User_name} - Corporation                partial_match=False
+    Sleep                       1
     DropDown                    templates-list              ${RelationshipData["templates-list"]}
     ClickText                   Save
     Run Keyword                 Wait
@@ -324,14 +320,12 @@ Data
     ClickText                   *Category
     ClickText                   ${RelationshipData["Category"]}
     ClickText                   *Effective Date
-    ClickText                   Effective Date Help Info
-    ClickText                   Select a date for Effective Date
-    ClickText                   31
+    ClickText                   Today
     ClickText                   *Covenant Type
     ClickText                   ${RelationshipData["Covenant_Type"]}
     ClickText                   *Frequency Template
     ClickText                   ${RelationshipData["Frequency_Template"]}
-    TypeText                    Grace Days                    ${RelationshipData["Grace_Days"]}
+    TypeText                    Grace Days                  ${RelationshipData["Grace_Days"]}
     ClickText                   Create                      partial_match=False
 
 
