@@ -292,7 +292,7 @@ Add Team Member in Loan
 Add Entity Involvement in Loan  
     [Arguments]                 ${RelationshipData}
     ClickText                   Add Entity Involvement
-    Usemodel                    On
+    UseModal                    On
     ClickCheckbox               Select ${Household_User_name}                           on                     partial_match=false
     ClickCheckbox               Select ${Household_User_name}                           off                    partial_match=false
     ClickCheckbox               Select ${Household_User_name}                           on                     partial_match=false    delay=5
