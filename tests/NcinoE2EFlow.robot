@@ -2,7 +2,7 @@
 Library                         QForce
 Library                         QWeb
 Resource                        ../resources/common.robot
-Resource                        ../resources/Keyword2.robot
+Resource                        ../resources/Keyword.robot
 Suite Setup                     Setup Browser
 Suite Teardown                  End Suite
 
