@@ -5,9 +5,7 @@ Library                         RequestsLibrary
 Library                         JSONLibrary
 Library                         OperatingSystem
 Resource                        ../resources/common.robot
-Resource                        ../resources/keyword.robot
-Suite Setup                     Setup Browser
-Suite Teardown                  End Suite
+
 
 
 
