@@ -6,10 +6,10 @@ Suite Setup                     Open Browser                about:blank         
 *** Variables ***
 ${BROWSER}                      chrome
 ${home_url}                     ${login_url}/lightning/page/home
-${login_url}                https://copadotestenvironmentv2--uat.sandbox.lightning.force.com/
+${login_url}                    https://copadotestenvironmentv2--uat.sandbox.lightning.force.com/
 ${Username}                     satishr@copadoncinoenv2uat.com
 ${password}                     ncino@1234
-${secret}                           EXPK7N6N4MKSBFCHF3MMN2F6BP6YHVCG
+${secret}                       EXPK7N6N4MKSBFCHF3MMN2F6BP6YHVCG
 
 
 *** Keywords ***
@@ -35,7 +35,7 @@ Login
 Home
     [Documentation]             Navigate to homepage, login if needed
     GoTo                        ${home_url}
-    ${login_status} =           IsText                      To access this page, you have to log in to Salesforce.    2
+    ${login_status} =           IsText                      To access this page, you have to log in to Salesforce.           2
     Run Keyword If              ${login_status}             Login
     ClickText                   Home
     VerifyTitle                 Home | Salesforce
@@ -45,8 +45,7 @@ Wait
     Sleep                       10
 
 Generate Unique Name
-    [Arguments]    ${base_name}
-    ${ts}=    Get Time    epoch
-    ${unique}=     Catenate    _    ${base_name}    ${ts}
-    [Return]    ${unique}    
-    
+    [Arguments]                 ${base_name}
+    ${ts}=                      Get Time                    epoch
+    ${unique}=                  Catenate                    _                           ${base_name}                ${ts}
+    [Return]                    ${unique}
