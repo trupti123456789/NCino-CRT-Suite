@@ -375,7 +375,7 @@ Verify Covenant in loan
     [Arguments]                 ${RelationshipData}
     Clicktext                   Covenants
     ClickElement                xpath=//button[contains(@title,'COV-')]
-    Verifytext                  Category , Covenant Type
+    VerifyAll                  Category,Covenant Type
     Verifytext                  ${RelationshipData["Category"]}
     Verifytext                  ${RelationshipData["Covenant_Type"]}                    anchor=Category
 
