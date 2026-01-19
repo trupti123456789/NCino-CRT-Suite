@@ -10,7 +10,7 @@ Suite Teardown                  End Suite
 *** Test Cases ***   
 E2E_flow
     [tags]                    Ncino
-    ${RelationshipData}=  Data
+   ${RelationshipData}=  Data
     Adding Relationships for Customer Onboarding            ${RelationshipData}
     Verify the Relationships                                ${RelationshipData}
     Create a connection for the household relationship      ${RelationshipData}
