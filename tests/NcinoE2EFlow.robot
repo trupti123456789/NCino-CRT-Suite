@@ -18,14 +18,14 @@ E2E_flow
     Create a Contact for Bussiness Account                  ${RelationshipData}
     Verifying contact creation                              ${RelationshipData}
     Create a Product package for Business Account           ${RelationshipData}
-    Create a new Loan           ${RelationshipData}
+    Create a new Loan                                       ${RelationshipData}
     Fill the Loan information                               ${RelationshipData}
-    Add Team Member in Loan     ${RelationshipData}
+    Add Team Member in Loan                                 ${RelationshipData}
     Add Entity Involvement in Loan                          ${RelationshipData}
-    Add Collateral in Loan      ${RelationshipData}
-    Add Fee in Loan             ${RelationshipData}
+    Add Collateral in Loan                                  ${RelationshipData}
+    Add Fee in Loan                                         ${RelationshipData}
     Create Risk Rating in Loan                              ${RelationshipData}
-    Add Covenants in Loan       ${RelationshipData}
+    Add Covenants in Loan                                   ${RelationshipData}
 
 
 
