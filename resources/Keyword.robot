@@ -3,6 +3,7 @@ Library                         QForce
 Library                         Collections
 Library                         RequestsLibrary
 Library                         JSONLibrary
+Library                        QVision
 Library                         OperatingSystem
 Resource                        ../resources/common.robot
 Suite Setup                     Setup Browser
@@ -433,6 +434,8 @@ Configure Document Manager
     VerifyAll                   Name,Category,Year
     Verifytext                  ${RelationshipData["Name"]}
     Verifytext                  ${RelationshipData["Category"]}
+    ClickText                   Upload Files
+    Qvision.Clicktext                   PO.pdf
     # ${relative_path}            Set Variable                tests/../Data/PO.pdf
     # ${file_path}                Get File Path Based on Mode                             ${relative_path}
     # VerifyText                  Document Details
