@@ -14,7 +14,7 @@ ${secret}                       EXPK7N6N4MKSBFCHF3MMN2F6BP6YHVCG
 
 *** Keywords ***
 Setup Browser   
-    Set Library Search Order    QForce
+   Set Library Search Order                          QForce    QWeb
     Open Browser                about:blank                 ${BROWSER}
     SetConfig                   LineBreak                   ${EMPTY}                    #\ue000
     SetConfig                   DefaultTimeout              45s                         #sometimes salesforce is slow
