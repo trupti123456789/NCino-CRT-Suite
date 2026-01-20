@@ -83,5 +83,10 @@
      "Description":"generation of the Credit Memo feature offers a streamlined experience to create and configure credit memo templates without custom code",
      "Credit Memo Screen Name":"Screen_Template",
      "Template Name":"nCino_Test_Template"
+   },
+   "Document Manager":{
+    "Category"":"LLC Documentation",
+     "Name":"Articles of Incorporation",
+     "Year":2026
    }
 }
