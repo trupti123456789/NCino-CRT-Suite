@@ -5,6 +5,8 @@ Library                         RequestsLibrary
 Library                         JSONLibrary
 Library                         OperatingSystem
 Resource                        ../resources/common.robot
+Suite Setup                     Setup Browser
+Suite Teardown                  End Suite
 
 *** Keywords ***
 Data
@@ -385,21 +387,22 @@ Verify Covenant in loan
 
 Create a Credit Memo
    [Arguments]                 ${RelationshipData}
-   LaunchApp                   Credit Memos
+   LaunchApp                   Credit Memo
    Clicktext                   New         Anchor=Change Owner
    Usemodal                    On
    Typetext                    *Credit Memo Name       ${RelationshipData["Credit_Memo_Name"]} 
    Typetext                    Description              ${RelationshipData["Description"]} 
    Typetext                    *Object API Name          ${RelationshipData["Object_API_Name"]} 
-   Clicktext                   Save                      partial_false=False
+    Clicktext                   Save                      anchor=Save & New
+   Clicktext                   Cancel
    Clicktext                   Related
    Clicktext                   Credit Memo Screens
    Clicktext                   New                       anchor=Change Owner
    Usemodal                    On
    Typetext                    *Credit Memo Screen Name         ${RelationshipData["Credit_Memo_Screen_Name"]}
    Typetext                    Template Name                    ${RelationshipData["Template_Name"]}
-   Clicktext                   Save                      partial_false=False
-
+   Clicktext                   Save                      anchor=Save & New
+   Clicktext                   Cancel
 
 
     
