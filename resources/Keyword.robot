@@ -91,16 +91,16 @@ Data
     ...                         Effective_Date=${data12["Effective Date"]}
     ...                         Frequency_Template=${data12["Frequency Template"]}
     ...                         Grace_Days=${data12["Grace Days"]}
-     
+
     ...                         Credit_Memo_Name=${data13["Credit Memo Name"]}
     ...                         Object_API_Name=${data13["Object API Name"]}
     ...                         Description=${data13["Description"]}
     ...                         Credit_Memo_Screen_Name=${data13["Credit Memo Screen Name"]}
     ...                         Template_Name=${data13["Template Name"]}
-     
+
     ...                         Category=${data14["Category"]}
-    ...                        Name=${data14["Name"]}
-    ...                        Year=${data14["Year"]}
+    ...                         Name=${data14["Name"]}
+    ...                         Year=${data14["Year"]}
 
     [Return]                    ${RelationshipData}
 
@@ -306,10 +306,10 @@ Add Entity Involvement in Loan
     ClickCheckbox               Select all                  on
     Run Keyword                 Wait
     ClickText                   Add Selected Relationships
-     UseModal                    On
+    UseModal                    On
     DropDown                    Borrower Type               ${RelationshipData["Borrower_Type"]}
     DropDown                    Contingent Type             ${RelationshipData["Contingent_Type"]}
-    ClickText                   *Contingent Amount 
+    ClickText                   *Contingent Amount
     TypeText                    *Contingent Amount          ${RelationshipData["Contingent_Amount"]}           delay=5
     ClickText                   Save Entity Involvement
     Run Keyword                 Wait
@@ -391,51 +391,53 @@ Verify Covenant in loan
     Verifytext                  ${RelationshipData["Covenant_Type"]}                    anchor=Category
 
 Create a Credit Memo
-   [Arguments]                 ${RelationshipData}
-   LaunchApp                   Credit Memo
-   Clicktext                   New         Anchor=Change Owner
-   Usemodal                    On
-   Typetext                    *Credit Memo Name       ${RelationshipData["Credit_Memo_Name"]} 
-   Typetext                    Description              ${RelationshipData["Description"]} 
-   Typetext                    *Object API Name          ${RelationshipData["Object_API_Name"]} 
-    Clicktext                   Save                      anchor=Save & New
-   Clicktext                   Cancel
-   Clicktext                   Related
-   Clicktext                   Credit Memo Screens
-   Clicktext                   New                       anchor=Change Owner
-   Usemodal                    On
-   Typetext                    *Credit Memo Screen Name         ${RelationshipData["Credit_Memo_Screen_Name"]}
-   Typetext                    Template Name                    ${RelationshipData["Template_Name"]}
-   Clicktext                   Save                      anchor=Save & New
-   Clicktext                   Cancel
-    
+    [Arguments]                 ${RelationshipData}
+    LaunchApp                   Credit Memo
+    Clicktext                   New                         Anchor=Change Owner
+    Usemodal                    On
+    Typetext                    *Credit Memo Name           ${RelationshipData["Credit_Memo_Name"]}
+    Typetext                    Description                 ${RelationshipData["Description"]}
+    Typetext                    *Object API Name            ${RelationshipData["Object_API_Name"]}
+    Clicktext                   Save                        anchor=Save & New
+    Clicktext                   Cancel
+    Clicktext                   Related
+    Clicktext                   Credit Memo Screens
+    Clicktext                   New                         anchor=Change Owner
+    Usemodal                    On
+    Typetext                    *Credit Memo Screen Name    ${RelationshipData["Credit_Memo_Screen_Name"]}
+    Typetext                    Template Name               ${RelationshipData["Template_Name"]}
+    Clicktext                   Save                        anchor=Save & New
+    Clicktext                   Cancel
+
 
 Configure Document Manager
-  [Arguments]                 ${RelationshipData}
-   ClickText                   Relationships
-   Clicktext                   ${Business_User_name}
-   Clicktext                   Document Manager
-   Run Keyword                 Wait
-   Clicktext                 Add Placeholder        delay=5
-   Usemodal                  on
-   Dropdown                  *Category              ${RelationshipData["Category"]}
-   Dropdown                  *Name                   ${RelationshipData["Name"]}
-   Typetext                  Year                    ${RelationshipData["Year"]}
-   Clicktext                 Save                    anchor=Cancel
-   Usemodal                  Off
-   Clicktext                 ${RelationshipData["Name"]}
-   VerifyAll                 Name,Category,Year                
-   Verifytext                  ${RelationshipData["Name"]}
-   Verifytext                  ${RelationshipData["Category"]}        
-   Verifytext                  ${RelationshipData["Year"]}
-                       
+    [Arguments]                 ${RelationshipData}
+    ClickText                   Relationships
+    Clicktext                   ${Business_User_name}
+    Clicktext                   Document Manager
+    Run Keyword                 Wait
+    Clicktext                   Add Placeholder             delay=5
+    Usemodal                    on
+    ClickText                   LLC Documentation
+    ClickElement                xpath=//input[@id="docTypeInputField"]
+    ClickText                   ${RelationshipData["Category"]}
+    ClickElement                xpath=//input[@id="nameInputField"]
+    ClickText                   ${RelationshipData["Name"]}
+    Typetext                    Year                        ${RelationshipData["Year"]}
+    Clicktext                   Save                        anchor=Cancel
+    Usemodal                    Off
+    Clicktext                   ${RelationshipData["Name"]}
+    VerifyAll                   Name,Category,Year
+    Verifytext                  ${RelationshipData["Name"]}
+    Verifytext                  ${RelationshipData["Category"]}
 
 
 
 
 
 
-    
+
+
 
 
 
