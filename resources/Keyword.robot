@@ -6,9 +6,6 @@ Library                         JSONLibrary
 Library                         OperatingSystem
 Resource                        ../resources/common.robot
 
-
-
-
 *** Keywords ***
 Data
 
