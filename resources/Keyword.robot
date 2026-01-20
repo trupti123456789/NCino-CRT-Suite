@@ -7,6 +7,9 @@ Library                         OperatingSystem
 Resource                        ../resources/common.robot
 Suite Setup                     Setup Browser
 Suite Teardown                  End Suite
+ 
+*** Variables ***
+${file}       xpath=/input[@type='file']
 
 *** Keywords ***
 Data
@@ -430,9 +433,10 @@ Configure Document Manager
     VerifyAll                   Name,Category,Year
     Verifytext                  ${RelationshipData["Name"]}
     Verifytext                  ${RelationshipData["Category"]}
-    ${relative_path}        Set Variable                tests/../Data/PO.pdf
-    ${file_path}            Get File Path Based on Mode                             ${relative_path}
-    UploadFile              Upload Files                ${file_path}
+    ${relative_path}            Set Variable                tests/../Data/PO.pdf
+    ${file_path}                Get File Path Based on Mode                             ${relative_path}
+    ${file}                                          xpath=//input[@type='file']
+    UploadFile                  ${file}                 ${file_path}
 
 
 
