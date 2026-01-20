@@ -435,8 +435,7 @@ Configure Document Manager
     Verifytext                  ${RelationshipData["Category"]}
     ${relative_path}            Set Variable                tests/../Data/PO.pdf
     ${file_path}                Get File Path Based on Mode                             ${relative_path}
-    ${file}                                          xpath=//input[@type='file']
-    UploadFile                  ${file}                 ${file_path}
+     UploadFile                  ${file}                 ${file_path}
 
 
 
