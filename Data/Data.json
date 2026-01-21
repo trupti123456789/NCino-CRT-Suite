@@ -71,7 +71,7 @@
      "templates-list":"Commercial Real Estate"
    },
    "Covenant":{
-    "Category":"Term Covenants",
+    "CategoryCov":"Term Covenants",
     "Covenant Type":"Deposit Relationship",
     "Effective Date":"Jan 31, 2027",
      "Frequency Template":"Annually",
