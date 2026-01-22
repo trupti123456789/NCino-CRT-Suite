@@ -8,10 +8,24 @@ class UploadFile:
     def __init__(self, driver=None):
         self.driver = driver
 
-        # 🔹 Resolve Git project root dynamically
-        self.project_root = os.path.abspath(
-            os.path.join(os.path.dirname(__file__), "..")
-        )
+    def _find_project_root_with_data(self):
+        """
+        Traverse upward to find folder containing 'Data'
+        """
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+
+        while True:
+            data_path = os.path.join(current_dir, "Data")
+            if os.path.isdir(data_path):
+                return current_dir
+
+            parent_dir = os.path.dirname(current_dir)
+            if parent_dir == current_dir:
+                break
+
+            current_dir = parent_dir
+
+        raise Exception("Data folder not found in project hierarchy")
 
     @keyword("Upload File From Data Folder")
     def upload_file_from_data_folder(self, file_name, upload_button_xpath=None):
