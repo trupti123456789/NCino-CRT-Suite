@@ -15,8 +15,8 @@ ${file}                         xpath=//input[@type='file']
 *** Keywords ***
 Data
 
-    ${Json_obj}=                Evaluate                    open('${CURDIR}/../Data/Data.json').read()         json
-    ${dataA}=                   Evaluate                    json.loads('''${Json_obj}''')                      json
+    ${Json_obj}=                Evaluate                    open('${CURDIR}/../Data/Data.json').read()              json
+    ${dataA}=                   Evaluate                    json.loads('''${Json_obj}''')                           json
 
     # Extracting data for relationship object and logging the values
     ${data1}=                   Set Variable                ${dataA["data1Relationship"]}
@@ -308,7 +308,7 @@ Add Entity Involvement in Loan
     [Arguments]                 ${RelationshipData}
     ClickText                   Add Entity Involvement
     UseModal                    On
-    ClickCheckbox               Select ${Household_User_name}                           on                     partial_match=false
+    ClickCheckbox               Select ${Household_User_name}                           on                          partial_match=false
     ClickCheckbox               Select all                  on
     Run Keyword                 Wait
     ClickText                   Add Selected Relationships
@@ -316,7 +316,7 @@ Add Entity Involvement in Loan
     DropDown                    Borrower Type               ${RelationshipData["Borrower_Type"]}
     DropDown                    Contingent Type             ${RelationshipData["Contingent_Type"]}
     ClickText                   *Contingent Amount
-    TypeText                    *Contingent Amount          ${RelationshipData["Contingent_Amount"]}           delay=5
+    TypeText                    *Contingent Amount          ${RelationshipData["Contingent_Amount"]}                delay=5
     ClickText                   Save Entity Involvement
     Run Keyword                 Wait
     ClickText                   Continue
@@ -363,7 +363,7 @@ Create Risk Rating in Loan
     [Arguments]                 ${RelationshipData}
     ClickText                   Create Risk Rating
     ClickElement                xpath=//select[@id="accounts-list"]
-    DropDown                    accounts-list               ${Business_User_name} - Corporation                partial_match=False
+    DropDown                    accounts-list               ${Business_User_name} - Corporation                     partial_match=False
     Sleep                       1
     DropDown                    templates-list              ${RelationshipData["templates-list"]}
     ClickText                   Save
@@ -398,35 +398,35 @@ Verify Covenant in loan
     Verifytext                  ${RelationshipData["Covenant_Type"]}                    anchor=Category
 
 Create a Credit Memo from Product Package 
-   [Arguments]                 ${RelationshipData}
-   Clicktext                   Product Package
-   Clicktext                    ${Business_User_name}    partial_match=True
-   Verifytext                   Package Information
+    [Arguments]                 ${RelationshipData}
+    Clicktext                   Product Package
+    Clicktext                   ${Business_User_name}       partial_match=True
+    Verifytext                  Package Information
 
-    ClickText    Edit: Household
+    ClickText                   Edit: Household
     Clickelement                xpath=//label[text()='Household']//following::lightning-helptext//following-sibling::div//input
-    ClickText                    ${Household_User_name}  
-        Clickelement                xpath=//label[text()='Primary Officer']//following-sibling::div//input
-     Clicktext                      ${RelationshipData["User"]}
-     Clickelement                   xpath=//label[text()='Secondary Officer']//following-sibling::div//input
-     Clicktext                       ${RelationshipData["User"]}
-    TypeText    Total Borrower Exposure    ${RelationshipData["Total_Borrower_Exposure"]}
-    TypeText    Total Obligor Exposure     ${RelationshipData["Total_Obligor_Exposure"]}
-    TypeText    Unused     ${RelationshipData["Unused"]}
-    TypeText    Outstanding     ${RelationshipData["Outstanding"]}
-    TypeText    Total Credit Exposure     ${RelationshipData["Total Credit Exposur"]}
-    TypeText    New Money     ${RelationshipData["New Money"]}
-    ClickText    Save
-    Run Keyword               Wait
-    Clicktext                 Assign Approvers           partial_match=False    anchor=Product Package Details
-    Clickelement              xpath=//label[text()='Approver 1']//following::lightning-helptext//following-sibling::div//input
-     Clicktext                      ${RelationshipData["User"]}                 anchor=Approver 1
-    Clickelement              xpath=//label[text()='Approver 2']//following::lightning-helptext//following-sibling::div//input
-     Clicktext                      ${RelationshipData["User"]}                 anchor=Approver 2
-     Clickelement              xpath=//label[text()='Approval Committee']//parent::span//following-sibling::div/lightning-base-combobox//button
-     Clicktext                 ${RelationshipData["Loan_Committee"]}
-    Clicktext                  Save                        anchor=Cancel
-     Run Keyword               Wait
+    ClickText                   ${Household_User_name}
+    Clickelement                xpath=//label[text()='Primary Officer']//following-sibling::div//input
+    Clicktext                   ${RelationshipData["User"]}
+    Clickelement                xpath=//label[text()='Secondary Officer']//following-sibling::div//input
+    Clicktext                   ${RelationshipData["User"]}
+    TypeText                    Total Borrower Exposure     ${RelationshipData["Total_Borrower_Exposure"]}
+    TypeText                    Total Obligor Exposure      ${RelationshipData["Total_Obligor_Exposure"]}
+    TypeText                    Unused                      ${RelationshipData["Unused"]}
+    TypeText                    Outstanding                 ${RelationshipData["Outstanding"]}
+    TypeText                    Total Credit Exposure       ${RelationshipData["Total Credit Exposur"]}
+    TypeText                    New Money                   ${RelationshipData["New Money"]}
+    ClickText                   Save
+    Run Keyword                 Wait
+    Clicktext                   Assign Approvers            partial_match=False         anchor=Product Package Details
+    Clickelement                xpath=//label[text()='Approver 1']//following::lightning-helptext//following-sibling::div//input
+    Clicktext                   ${RelationshipData["User"]}                             anchor=Approver 1
+    Clickelement                xpath=//label[text()='Approver 2']//following::lightning-helptext//following-sibling::div//input
+    Clicktext                   ${RelationshipData["User"]}                             anchor=Approver 2
+    Clickelement                xpath=//label[text()='Approval Committee']//parent::span//following-sibling::div/lightning-base-combobox//button
+    Clicktext                   ${RelationshipData["Loan_Committee"]}
+    Clicktext                   Save                        anchor=Cancel
+    Run Keyword                 Wait
 
 Configure Document Manager
     [Arguments]                 ${RelationshipData}
@@ -452,39 +452,36 @@ Configure Document Manager
 
 Dealing with Loan Facilities
 
-   [Arguments]                 ${RelationshipData}
-   Clicktext                   Product Package
-   Clicktext                    ${Business_User_name}    partial_match=True
-   Clicktext                   Loan Facilities    anchor=Fees
-   VerifyElementText                   //p[text()\='Number of Reviewable Loan Facilities']/following::lightning-formatted-number[1]        0
-   Verifytext                  All Facilities
-   Clickelement                xpath=//button[text()='Edit']
-   ClickCheckbox     Is Review Ready    on
-   Clicktext         Save
-   Refreshpage
-   VerifyElementText                   //p[text()\='Number of Reviewable Loan Facilities']/following::lightning-formatted-number[1]        1  
+    [Arguments]                 ${RelationshipData}
+    Clicktext                   Product Package
+    Clicktext                   ${Business_User_name}       partial_match=True
+    Clicktext                   Loan Facilities             anchor=Fees
+    VerifyElementText           //p[text()\='Number of Reviewable Loan Facilities']/following::lightning-formatted-number[1]    0
+    Verifytext                  All Facilities
+    Clickelement                xpath=//button[text()='Edit']
+    ClickCheckbox               Is Review Ready             on
+    Clicktext                   Save
+    Refreshpage
+    VerifyElementText           //p[text()\='Number of Reviewable Loan Facilities']/following::lightning-formatted-number[1]    1
 
 Create a Credit Memo 
-   [Arguments]                 ${RelationshipData}    
-    Clicktext                        Magic Wand   
-    Clicktext                        Generate  Credit Memo    
-    Run Keyword                      Wait
-    Verifytext                       Generate Form
-    Clicktext                        Generate
-    QVision.Clicktext                        Save to Document Manager         delay=20
-    ${relative_path}          Set Variable                tests/../Data/PO.pdf
-    ${file_path}              Get File Path Based on Mode                             ${relative_path}
-    VerifyText                Save To Placeholder
-    UploadFile                Upload              ${file_path}
+    [Arguments]                 ${RelationshipData}
+    Clicktext                   Magic Wand
+    Clicktext                   Generate                    Credit Memo
+    Run Keyword                 Wait
+    Verifytext                  Generate Form
+    Clicktext                   Generate
+    QVision.Clicktext           Save to Document Manager    delay=20
+    ${relative_path}            Set Variable                tests/../Data/PO.pdf
+    ${file_path}                Get File Path Based on Mode                             ${relative_path}
+    VerifyText                  Save To Placeholder
+    UploadFile                  Upload                      ${file_path}
     Run Keyword                 Wait
     QVision.Clicktext           Placeholder
-    QVision.Typetext             Type to filter placeholder                    Credit Memo          
+    QVision.Typetext            Type to filter placeholder                              Credit Memo
 
-   
 
-    
-
-Create a Credit Memo
+1Create a Credit Memo
     [Arguments]                 ${RelationshipData}
     LaunchApp                   Credit Memo
     Clicktext                   New                         Anchor=Change Owner
