@@ -13,18 +13,17 @@ class UploadFile:
             os.path.join(os.path.dirname(__file__), "..")
         )
 
-    @keyword
-    def upload_file_from_data_folder(self, upload_button_xpath, file_name):
-        
-        # Build full file path
-        full_path = os.path.join(self.project_root, "Data", file_name)
+   @keyword
+    def upload_file_from_data_folder(self, file_name, upload_button_xpath=None):
 
-        # Click upload button if required
-        if upload_button_xpath:
-            self.driver.find_element(By.XPATH, upload_button_xpath).click()
+    full_path = os.path.join(self.project_root, "Data", file_name)
 
-        # Locate file input
-        file_input = self.driver.find_element(By.XPATH, "//input[@type='file']")
+    if not os.path.exists(full_path):
+        raise Exception(f"File not found in Data folder: {full_path}")
 
-        #  Upload file
-        file_input.send_keys(full_path)
+    if upload_button_xpath:
+        self.driver.find_element(By.XPATH, upload_button_xpath).click()
+
+    file_input = self.driver.find_element(By.XPATH, "//input[@type='file']")
+    file_input.send_keys(full_path)
+
