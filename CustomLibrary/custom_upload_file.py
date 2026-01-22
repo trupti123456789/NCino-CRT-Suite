@@ -14,4 +14,4 @@ class CustomUploadFile:
         if upload_button_xpath:
             BuiltIn().run_keyword("Click Element", upload_button_xpath)
 
-        BuiltIn().run_keyword("Choose File", //input[@type="file"], //button[text()='Upload File']
+        BuiltIn().run_keyword("Choose File", //input[@type="file"], //button[text()='Upload File'])
