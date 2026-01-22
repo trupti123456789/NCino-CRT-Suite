@@ -5,6 +5,7 @@ Library                         RequestsLibrary
 Library                         JSONLibrary
 Library                         QVision
 Library                         OperatingSystem
+Library                        SeleniumLibrary
 Library                         ../CustomLibrary/custom_upload_file.py
 Resource                        ../resources/common.robot
 Suite Setup                     Setup Browser
@@ -527,7 +528,8 @@ Configuring Loan
     ClickText                   ${Business_User_name}
     ${relative_path}            Set Variable                tests/../Data/PO.pdf
     ${file_patha}                Get File Path Based on Mode                             ${relative_path}
-    Custom Upload File  ${file_patha} 
+    Custom Upload File           ${file_patha} 
+   Choose File                   //input[@type="file"]
 
 
 
