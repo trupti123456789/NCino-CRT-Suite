@@ -60,3 +60,6 @@ Get File Path Based on Mode
         ${File}=    Set Variable    /home/services/suite/${uploadfilepath}
     END
     RETURN   ${File}    
+Change Stage
+   ClickText                   Loans
+    Clicktext                   Mark as Current Stage
