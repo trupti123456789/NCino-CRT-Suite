@@ -394,11 +394,12 @@ Verify Covenant in loan
     Clicktext                   Covenants
     ClickElement                xpath=//button[contains(@title,'COV-')]
     VerifyAll                   Category,Covenant Type
-    Verifytext                  ${RelationshipData["Category"]}
+    Verifytext                  ${RelationshipData["CategoryCov"]}
     Verifytext                  ${RelationshipData["Covenant_Type"]}                    anchor=Category
 
-Configure the Product Package Details and approval officer
+Configure the Product Package Details and assign Approval Users
     [Arguments]                 ${RelationshipData}
+    VerifyText                  Items required to submit for approval:
     Clicktext                   Product Package
     Clicktext                   ${Business_User_name}       partial_match=True
     Verifytext                  Package Information
@@ -414,8 +415,8 @@ Configure the Product Package Details and approval officer
     TypeText                    Total Obligor Exposure      ${RelationshipData["Total_Obligor_Exposure"]}
     TypeText                    Unused                      ${RelationshipData["Unused"]}
     TypeText                    Outstanding                 ${RelationshipData["Outstanding"]}
-    TypeText                    Total Credit Exposure       ${RelationshipData["Total Credit Exposur"]}
-    TypeText                    New Money                   ${RelationshipData["New Money"]}
+    TypeText                    Total Credit Exposure       ${RelationshipData["Total_Credit_Exposur"]}
+    TypeText                    New Money                   ${RelationshipData["New_Money"]}
     ClickText                   Save
     Run Keyword                 Wait
     Clicktext                   Assign Approvers            partial_match=False         anchor=Product Package Details
@@ -424,19 +425,18 @@ Configure the Product Package Details and approval officer
     Clickelement                xpath=//label[text()='Approver 2']//following::lightning-helptext//following-sibling::div//input
     Clicktext                   ${RelationshipData["User"]}                             anchor=Approver 2
     Clickelement                xpath=//label[text()='Approval Committee']//parent::span//following-sibling::div/lightning-base-combobox//button
-    Clicktext                   ${RelationshipData["Loan_Committee"]}
+    Clicktext                   ${RelationshipData["Approval_Committee"]}
     Clicktext                   Save                        anchor=Cancel
     Run Keyword                 Wait
 
 Configure Document Manager
     [Arguments]                 ${RelationshipData}
-    ClickText                   Relationships
+    Clicktext                   Product Package
     Clicktext                   ${Business_User_name}
     Clicktext                   Document Manager
     Run Keyword                 Wait
     Clicktext                   Add Placeholder             delay=5
     Usemodal                    on
-    ClickText                   LLC Documentation
     ClickElement                xpath=//input[@id="docTypeInputField"]
     ClickText                   ${RelationshipData["Category"]}
     ClickElement                xpath=//input[@id="nameInputField"]
@@ -444,9 +444,9 @@ Configure Document Manager
     Typetext                    Year                        ${RelationshipData["Year"]}
     Clicktext                   Save                        anchor=Cancel
     Usemodal                    Off
-    Clicktext                   ${RelationshipData["Name"]}
+    Clicktext                   ${RelationshipData["Document_Placeholder_Name"]}
     VerifyAll                   Name,Category,Year
-    Verifytext                  ${RelationshipData["Name"]}
+    Verifytext                  ${RelationshipData["Document_Placeholder_Name"]}
     Verifytext                  ${RelationshipData["Category"]}
 
 
