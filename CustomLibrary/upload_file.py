@@ -13,7 +13,7 @@ class UploadFile:
             os.path.join(os.path.dirname(__file__), "..")
         )
 
-   @keyword
+    @keyword
     def upload_file_from_data_folder(self, file_name, upload_button_xpath=None):
 
     full_path = os.path.join(self.project_root, "Data", file_name)
@@ -26,4 +26,5 @@ class UploadFile:
 
     file_input = self.driver.find_element(By.XPATH, "//input[@type='file']")
     file_input.send_keys(full_path)
+
 
