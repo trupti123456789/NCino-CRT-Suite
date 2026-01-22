@@ -304,7 +304,7 @@ Add Team Member in Loan
     ClickText                   Continue
     Run Keyword                 Wait
 
-Add Entity Involvement in Loan  
+Add Entity Involvement by adding Co-Borrowers/Guarantors to the Borrowing Structure and add Authorized Signers  
     [Arguments]                 ${RelationshipData}
     ClickText                   Add Entity Involvement
     UseModal                    On
@@ -420,6 +420,7 @@ Configure the Product Package Details and assign Approval Users
     ClickText                   Save
     Run Keyword                 Wait
     Clicktext                   Assign Approvers            partial_match=False         anchor=Product Package Details
+    Run Keyword                 Wait
     Clickelement                xpath=//label[text()='Approver 1']//following::lightning-helptext//following-sibling::div//input
     Clicktext                   ${RelationshipData["User"]}                             anchor=Approver 1
     Clickelement                xpath=//label[text()='Approver 2']//following::lightning-helptext//following-sibling::div//input
@@ -444,6 +445,7 @@ Configure Document Manager
     Typetext                    Year                        ${RelationshipData["Year"]}
     Clicktext                   Save                        anchor=Cancel
     Usemodal                    Off
+    Sleep                       3
     Clicktext                   ${RelationshipData["Document_Placeholder_Name"]}
     VerifyAll                   Name,Category,Year
     Verifytext                  ${RelationshipData["Document_Placeholder_Name"]}
