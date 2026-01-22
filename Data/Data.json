@@ -78,7 +78,7 @@
      "Grace Days":100
    },
    "Product Package":{
-    "Total Borrower Exposure":9,999.00,
+     "Total Borrower Exposure":9,999.00,
      "Total Obligor Exposure":2,222.00,
      "Unused":2,222.00,
      "Outstanding":4,444.00,
