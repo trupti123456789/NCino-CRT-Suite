@@ -102,6 +102,7 @@ Data
     ...                         Total_Credit_Exposur=${data13["Total Credit Exposur"]}
     ...                         New_Money=${data13["New Money"]}
     ...                         Approval_Committee=${data13["Approval Committee"]}
+    ...                         Parent_Household=${data13["Parent Household"]}
 
     ...                         Category=${data14["Category"]}
     ...                         Document_Placeholder_Name=${data14["Document Placeholder Name"]}
@@ -398,14 +399,14 @@ Verify Covenant in loan
 
 Configure the Product Package Details and assign Approval Users
     [Arguments]                 ${RelationshipData}
-    VerifyText                  Items required to submit for approval:
     Clicktext                   Product Package
     Clicktext                   ${Business_User_name}       partial_match=True
+    VerifyText                  Items required to submit for approval:
     Verifytext                  Package Information
 
     ClickText                   Edit: Household
     Clickelement                xpath=//label[text()='Household']//following::lightning-helptext//following-sibling::div//input
-    ClickText                   ${Household_User_name}
+    ClickText                   ${RelationshipData["Parent Household"]}
     Clickelement                xpath=//label[text()='Primary Officer']//following-sibling::div//input
     Clicktext                   ${RelationshipData["User"]}
     Clickelement                xpath=//label[text()='Secondary Officer']//following-sibling::div//input
@@ -514,7 +515,7 @@ Generate Commitment Letter via Generate Forms
     ClickText                   Generate Forms
     ClickText                   Generate
     Run Keyword                 Wait
-   # ${file_path}=              Verify File Download        timeout=30
+    # ${file_path}=             Verify File Download        timeout=30
 
 Configuring Loan
     [Arguments]                 ${RelationshipData}
