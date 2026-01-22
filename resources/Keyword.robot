@@ -522,21 +522,16 @@ Generate Commitment Letter via Generate Forms
     # ${file_path}=             Verify File Download        timeout=30
 
 Configuring Loan
-    [Arguments]                 ${RelationshipData}
+    [Arguments]                 ${RelationshipData} ${file_patha} ${file_input_xpath}, ${upload_button_xpath}
     ClickText                   Loans
     ClickText                   ${Business_User_name}
     ${relative_path}            Set Variable                tests/../Data/PO.pdf
     ${file_patha}                Get File Path Based on Mode                             ${relative_path}
-    Custom Upload File            ${file_patha}     //input[@type='file']        //button[text()='Upload File']
+    Custom Upload File  ${file_patha} 
 
 
 
-${file_patha}=    Get Upload File Path    Data/po.pdf
 
-  Custom Upload File
-  ...    ${file_patha}
-  ...    //input[@type='file']
-  ...    //button[@title='Upload']
 
 
 
