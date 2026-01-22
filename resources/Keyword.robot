@@ -90,7 +90,7 @@ Data
 
     ...                         templates-list=${data11["templates-list"]}
 
-    ...                         Category=${data12["CategoryCov"]}
+    ...                         CategoryCov=${data12["CategoryCov"]}
     ...                         Covenant_Type=${data12["Covenant Type"]}
     ...                         Effective_Date=${data12["Effective Date"]}
     ...                         Frequency_Template=${data12["Frequency Template"]}
@@ -379,7 +379,7 @@ Add Covenants in Loan
     ClickText                   Create Covenant
     UseModal                    On
     ClickText                   *Category
-    ClickText                   ${RelationshipData["Category"]}
+    ClickText                   ${RelationshipData["CategoryCov"]}
     ClickText                   *Effective Date
     ClickText                   Today
     ClickText                   *Covenant Type
