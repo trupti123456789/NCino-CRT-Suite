@@ -528,6 +528,8 @@ Configuring Loan
 
     
    Upload File From Data Folder    po.pdf
+   Upload File From Data Folder    po.pdf    //button[@title='Upload']
+
 
 
 
