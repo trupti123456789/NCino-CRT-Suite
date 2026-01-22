@@ -9,8 +9,7 @@ Resource                        ../resources/common.robot
 Suite Setup                     Setup Browser
 Suite Teardown                  End Suite
 
-*** Variables ***
-${file}                         xpath=//input[@type='file']
+
 
 *** Keywords ***
 Data
