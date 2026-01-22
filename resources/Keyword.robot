@@ -102,7 +102,7 @@ Data
     ...                         Outstanding=${data13["Outstanding"]}
     ...                         Total_Credit_Exposur=${data13["Total Credit Exposur"]}
     ...                         New_Money=${data13["New Money"]}
-    ...                         Loan_Committee=${data13["Loan Committee"]}
+    ...                         Approval_Committee=${data13["Approval Committee"]}
 
     ...                         Category=${data14["Category"]}
     ...                         Document_Placeholder_Name=${data14["Document Placeholder Name"]}
@@ -397,7 +397,7 @@ Verify Covenant in loan
     Verifytext                  ${RelationshipData["Category"]}
     Verifytext                  ${RelationshipData["Covenant_Type"]}                    anchor=Category
 
-Create a Credit Memo from Product Package 
+Configure the Product Package Details and approval officer
     [Arguments]                 ${RelationshipData}
     Clicktext                   Product Package
     Clicktext                   ${Business_User_name}       partial_match=True
