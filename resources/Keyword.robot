@@ -526,55 +526,8 @@ Configuring Loan
     ClickText                   Loans
     ClickText                   ${Business_User_name}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1Create a Credit Memo
-    [Arguments]                 ${RelationshipData}
-    LaunchApp                   Credit Memo
-    Clicktext                   New                         Anchor=Change Owner
-    Usemodal                    On
-    Typetext                    *Credit Memo Name           ${RelationshipData["Credit_Memo_Name"]}
-    Typetext                    Description                 ${RelationshipData["Description"]}
-    Typetext                    *Object API Name            ${RelationshipData["Object_API_Name"]}
-    Clicktext                   Save                        anchor=Save & New
-    Clicktext                   Cancel
-    Clicktext                   Related
-    Clicktext                   Credit Memo Screens
-    Clicktext                   New                         anchor=Change Owner
-    Usemodal                    On
-    Typetext                    *Credit Memo Screen Name    ${RelationshipData["Credit_Memo_Screen_Name"]}
-    Typetext                    Template Name               ${RelationshipData["Template_Name"]}
-    Clicktext                   Save                        anchor=Save & New
-    Clicktext                   Cancel
-
-
-
-    ClickText                   Upload File
-    QVision.DoubleClick         suite
-    QVision.DoubleClick         Data
-    QVision.DoubleClick         PO.pdf
-    Run Keyword                 Wait
-    # ${relative_path}          Set Variable                tests/../Data/PO.pdf
-    # ${file_path}              Get File Path Based on Mode                             ${relative_path}
-    # VerifyText                Document Details
-    # UploadFile                Upload Files                ${file_path}
-    # UploadFile                ${file}                     ${file_path}
+    
+  Upload File From Data Folder    po.pdf
 
 
 
