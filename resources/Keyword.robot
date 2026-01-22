@@ -31,7 +31,7 @@ Data
     ${data10}=                  Set Variable                ${dataA["Fee"]}
     ${data11}=                  Set Variable                ${dataA["RiskRating"]}
     ${data12}=                  Set Variable                ${dataA["Covenant"]}
-    ${data13}=                  Set Variable                ${dataA["Credit Memo"]}
+    ${data13}=                  Set Variable                ${dataA["Product Package"]}
     ${data14}=                  Set Variable                ${dataA["Document Manager"]}
 
     # Setting variables for relationship data
