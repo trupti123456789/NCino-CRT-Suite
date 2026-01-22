@@ -345,7 +345,7 @@ Add Collateral in Loan
     ClickText                   Continue
 
 Add the Origination Fee
-  [Arguments]                 ${RelationshipData}
+    [Arguments]                 ${RelationshipData}
     ClickText                   Add Fee
     ClickText                   Add Non-Standard Fee
     DropDown                    Fee Type                    ${RelationshipData["Fee_Type"]}
@@ -452,21 +452,9 @@ Configure Document Manager
     Verifytext                  ${RelationshipData["Category"]}
 
 
-Dealing with Loan Facilities
 
-    [Arguments]                 ${RelationshipData}
-    Clicktext                   Product Package
-    Clicktext                   ${Business_User_name}       partial_match=True
-    Clicktext                   Loan Facilities             anchor=Fees
-    VerifyElementText           //p[text()\='Number of Reviewable Loan Facilities']/following::lightning-formatted-number[1]    0
-    Verifytext                  All Facilities
-    Clickelement                xpath=//button[text()='Edit']
-    ClickCheckbox               Is Review Ready             on
-    Clicktext                   Save
-    Refreshpage
-    VerifyElementText           //p[text()\='Number of Reviewable Loan Facilities']/following::lightning-formatted-number[1]    1
 
-Create a Credit Memo 
+Generate the Product Package Credit Memo and update Deal Summary and Relationship Narrative
     [Arguments]                 ${RelationshipData}
     Clicktext                   Magic Wand
     Clicktext                   Generate                    Credit Memo
@@ -484,6 +472,37 @@ Create a Credit Memo
     ClickText                   Save
     Back
 
+Change the loan stege from Qualification to Proposal
+    Change Stage
+Generate Commitment Letter via Generate Forms 
+    [Arguments]                 ${RelationshipData}
+    ClickText                   Loans
+    ClickText                   ${Business_User_name}
+    Clicktext                   Magic Wand
+    ClickText                   Generate Forms
+    ClickText                   Generate
+    Run Keyword                 Wait
+    # ${file_path}=             Verify File Download        timeout=30
+Change the loan stege from Proposal to Credit Underwriting
+    Change Stage
+
+Dealing with Loan Facilities
+
+    [Arguments]                 ${RelationshipData}
+    Clicktext                   Product Package
+    Clicktext                   ${Business_User_name}       partial_match=True
+    Clicktext                   Loan Facilities             anchor=Fees
+    VerifyElementText           //p[text()\='Number of Reviewable Loan Facilities']/following::lightning-formatted-number[1]    0
+    Verifytext                  All Facilities
+    Clickelement                xpath=//button[text()='Edit']
+    ClickCheckbox               Is Review Ready             on
+    Clicktext                   Save
+    Refreshpage
+    VerifyElementText           //p[text()\='Number of Reviewable Loan Facilities']/following::lightning-formatted-number[1]    1
+
+Change the loan stege from Credit Underwriting to Final Review
+    Change Stage
+
 
 Loan submit for Approval
     [Arguments]                 ${RelationshipData}
@@ -492,6 +511,7 @@ Loan submit for Approval
     VerifyText                  Product Package Approval Process
     ClickText                   Back to Product Package
     VerifyText                  This Product Package is currently pending approval and locked for any edits
+     
 
 Loan Approver by assign User   
     [Arguments]                 ${RelationshipData}
@@ -509,15 +529,8 @@ Loan Approver by assign User
     Run Keyword                 Wait
     ClickText                   Approve                     partial_match=False
 
-Generate Commitment Letter via Generate Forms 
-    [Arguments]                 ${RelationshipData}
-    ClickText                   Loans
-    ClickText                   ${Business_User_name}
-    Clicktext                   Magic Wand
-    ClickText                   Generate Forms
-    ClickText                   Generate
-    Run Keyword                 Wait
-    # ${file_path}=             Verify File Download        timeout=30
+Change the loan stege from Final Review to Approval
+    Change Stage
 
 Configuring Loan
     [Arguments]                 ${RelationshipData}
