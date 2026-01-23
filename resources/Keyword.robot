@@ -82,13 +82,14 @@ Data
     ...                         City=${data9["City"]}
     ...                         Description=${data9["Description"]}
 
-    ...                         Fee_Type=${data10["Fee Type"]}
+    ...                         Fee_Type1=${data10["Fee Type1"]}
     ...                         Calculation_Type=${data10["Calculation Type"]}
     ...                         Percentage=${data10["Percentage"]}
     ...                         Fee_Paid_By=${data10["Fee Paid By"]}
     ...                         Basis_Source=${data10["Basis Source"]}
     ...                         Amount=${data10["Amount"]}
     ...                         Collection_Method=${data10["Collection Method"]}
+    ...                          Fee_Type2=${data10["Fee Type2"]}
 
     ...                         templates-list=${data11["templates-list"]}
 
