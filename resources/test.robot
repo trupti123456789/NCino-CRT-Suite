@@ -13,7 +13,7 @@ Suite Teardown                  End Suite
 
 
 *** Keywords ***
-
+    ${RelationshipData}=  Data
 
 Adding Relationships for Customer Onboarding
     [Documentation]             appstate to go directly to nCino / Relationships and create Onboarding
