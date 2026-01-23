@@ -6,109 +6,13 @@ Library                         JSONLibrary
 Library                         QVision
 Library                         OperatingSystem
 Resource                        ../resources/common.robot
+Resource                        ../resources/Keyword.robot
 Suite Setup                     Setup Browser
 Suite Teardown                  End Suite
 
 
 
 *** Keywords ***
-Data
-
-    ${Json_obj}=                Evaluate                    open('${CURDIR}/../Data/Data.json').read()              json
-    ${dataA}=                   Evaluate                    json.loads('''${Json_obj}''')                           json
-
-    # Extracting data for relationship object and logging the values
-    ${data1}=                   Set Variable                ${dataA["data1Relationship"]}
-    ${data2}=                   Set Variable                ${dataA["data2Relationship"]}
-    ${data3}=                   Set Variable                ${dataA["data3Relationship"]}
-    ${data4}=                   Set Variable                ${dataA["DirectDebt"]}
-    ${data5}=                   Set Variable                ${dataA["IndirectDebt"]}
-    ${data6}=                   Set Variable                ${dataA["Loan"]}
-    ${data7}=                   Set Variable                ${dataA["LoanData"]}
-    ${data8}=                   Set Variable                ${dataA["EntityInvolvement"]}
-    ${data9}=                   Set Variable                ${dataA["Collateral"]}
-    ${data10}=                  Set Variable                ${dataA["Fee"]}
-    ${data11}=                  Set Variable                ${dataA["RiskRating"]}
-    ${data12}=                  Set Variable                ${dataA["Covenant"]}
-    ${data13}=                  Set Variable                ${dataA["Product Package"]}
-    ${data14}=                  Set Variable                ${dataA["Document Manager"]}
-
-    # Setting variables for relationship data
-    ${RelationshipData}=        Create Dictionary
-    ...                         Name=${data1["Relationship Name"]}
-    ...                         Type0=${data1["Type"]}
-    ...                         Role=${data1["Role"]}
-    ...                         Name1=${data2["Relationship Name"]}
-    ...                         Type1=${data2["Type"]}
-    ...                         Role1=${data2["Role"]}
-    ...                         Contact=${data2["Contact"]}
-    ...                         Name2=${data3["Relationship Name"]}
-    ...                         Type2=${data3["Type"]}
-    ...                         DebtName1=${data4["Debt Name"]}
-    ...                         value1=${data4["Principal Balance"]}
-    ...                         DebtName2=${data5["Debt Name"]}
-    ...                         value2=${data5["Principal Balance"]}
-
-    ...                         Product_Line=${data6["Product Line"]}
-    ...                         Product_Type=${data6["Product Type"]}
-    ...                         Product=${data6["Product"]}
-    ...                         Borrower_Type=${data6["Borrower Type"]}
-    ...                         Loan_Amount=${data6["Loan Amount"]}
-    ...                         Loan_Purpose=${data6["Loan Purpose"]}
-
-    ...                         Loan_Number=${data7["Loan Number"]}
-    ...                         Primary_Loan_Purpose=${data7["Primary Loan Purpose"]}
-    ...                         Application_Method=${data7["Application Method"]}
-    ...                         Method_of_Doc_Prep=${data7["Method of Doc Prep"]}
-    ...                         Prepayment_Penalty_Description=${data7["Prepayment Penalty Description"]}
-    ...                         Secondary_Source_of_Repayment=${data7["Secondary Source of Repayment"]}
-    ...                         Primary_Source_of_Repayment=${data7["Primary Source of Repayment"]}
-    ...                         Tertiary_Source_of_Repayment=${data7["Tertiary Source of Repayment"]}
-    ...                         Loan_Amount=${data7["Loan Amount"]}
-    ...                         User=${data7["User"]}
-    ...                         Role=${data7["Role"]}
-
-    ...                         Borrower_Type=${data8["Borrower Type"]}
-    ...                         Contingent_Type=${data8["Contingent Type"]}
-    ...                         Contingent_Amount=${data8["Contingent Amount"]}
-
-    ...                         Type=${data9["Type"]}
-    ...                         Subtype=${data9["Subtype"]}
-    ...                         Value=${data9["Value"]}
-    ...                         Collateral_Name=${data9["Collateral Name"]}
-    ...                         City=${data9["City"]}
-    ...                         Description=${data9["Description"]}
-
-    ...                         Fee_Type=${data10["Fee Type"]}
-    ...                         Calculation_Type=${data10["Calculation Type"]}
-    ...                         Percentage=${data10["Percentage"]}
-    ...                         Fee_Paid_By=${data10["Fee Paid By"]}
-    ...                         Basis_Source=${data10["Basis Source"]}
-    ...                         Amount=${data10["Amount"]}
-    ...                         Collection_Method=${data10["Collection Method"]}
-
-    ...                         templates-list=${data11["templates-list"]}
-
-    ...                         CategoryCov=${data12["CategoryCov"]}
-    ...                         Covenant_Type=${data12["Covenant Type"]}
-    ...                         Effective_Date=${data12["Effective Date"]}
-    ...                         Frequency_Template=${data12["Frequency Template"]}
-    ...                         Grace_Days=${data12["Grace Days"]}
-
-    ...                         Total_Borrower_Exposure=${data13["Total Borrower Exposure"]}
-    ...                         Total_Obligor_Exposure=${data13["Total Obligor Exposure"]}
-    ...                         Unused=${data13["Unused"]}
-    ...                         Outstanding=${data13["Outstanding"]}
-    ...                         Total_Credit_Exposur=${data13["Total Credit Exposur"]}
-    ...                         New_Money=${data13["New Money"]}
-    ...                         Approval_Committee=${data13["Approval Committee"]}
-    ...                         Parent_Household=${data13["Parent Household"]}
-
-    ...                         Category=${data14["Category"]}
-    ...                         Document_Placeholder_Name=${data14["Document Placeholder Name"]}
-    ...                         Year=${data14["Year"]}
-
-    [Return]                    ${RelationshipData}
 
 
 Adding Relationships for Customer Onboarding
