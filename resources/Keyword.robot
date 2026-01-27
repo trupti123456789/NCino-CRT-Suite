@@ -4,7 +4,8 @@ Library                         Collections
 Library                         RequestsLibrary
 Library                         JSONLibrary
 Library                         QVision
-Library                         ../CustomLIbrary/Selenium.py
+Library                        SeleniumLibrary
+Library                        attach_driver.py
 Library                         OperatingSystem
 Resource                        ../resources/common.robot
 Resource                        ../resources/data.robot
@@ -537,21 +538,11 @@ Change the loan stege from Approval to Processing
     Clicktext                   Mark Stage as Complete
     sleep                       3
     Verify LOS Stage Using VerifyElement                    Processing
-    Attach Driver
-    Choose File
-    ${relative_path}            Set Variable                tests/../Data/PO.pdf
+ 
+   ${relative_path}            Set Variable                tests/../Data/PO.pdf
     ${file_path}                Get File Path Based on Mode                             ${relative_path}
   Selenium.Upload File Lightning                          locator=//input[@type='file']                           file_path=${file_path}
   Selenium.Upload File Lightning                        locator=//button[normalize-space()='Upload File']  file_path=${file_path}
-
-
-
-
-
-
-
-
-
 
 
 
