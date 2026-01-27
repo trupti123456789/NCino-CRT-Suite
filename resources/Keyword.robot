@@ -541,6 +541,12 @@ Change the loan stege from Approval to Processing
  
     Execute Javascript       document.querySelector('input[type="file"]').style.display='block';    Choose File    css:input[type="file"]     ${file_path}
 
+    ${JS}    Set Variable    document.querySelector('input[type="file"]').style.display='block';
+    Execute Javascript    ${JS}
+   SeleniumLibrary.Wait Until Element Contains    //input[@type='file' and @name='files']    20s
+
+
+
 
 
 
