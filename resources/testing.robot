@@ -13,7 +13,7 @@ Suite Setup                     Setup Browser
 Suite Teardown                  End Suite
 
 
-*** Keywords ***
+*** Test ***
     ${RelationshipData}=        Data
 
 Adding Business Relationship for Customer Onboarding
