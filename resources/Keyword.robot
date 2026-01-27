@@ -5,6 +5,7 @@ Library                         RequestsLibrary
 Library                         JSONLibrary
 Library                         QVision
 Library                        SeleniumLibrary
+Library                        CustomLIbrary/AttachBrowser.py
 Library                        ../CustomLIbrary/attach_driver.py
 Library                         OperatingSystem
 Resource                        ../resources/common.robot
