@@ -5,8 +5,7 @@ Library                         RequestsLibrary
 Library                         JSONLibrary
 Library                         QVision
 Library                        SeleniumLibrary
-Library                        CustomLIbrary/AttachBrowser.py
-Library                        ../CustomLIbrary/attach_driver.py
+Library                        ../CustomLIbrary/AttachBrowser.py
 Library                         OperatingSystem
 Resource                        ../resources/common.robot
 Resource                        ../resources/data.robot
@@ -539,12 +538,7 @@ Change the loan stege from Approval to Processing
     Clicktext                   Mark Stage as Complete
     sleep                       3
     Verify LOS Stage Using VerifyElement                    Processing
- 
-    Execute Javascript       document.querySelector('input[type="file"]').style.display='block';    Choose File    css:input[type="file"]     ${file_path}
-
-    ${JS}    Set Variable    document.querySelector('input[type="file"]').style.display='block';
-    Execute Javascript    ${JS}
-  SeleniumLibrary.Wait Until Element Contains    locator=//input[@type='file' and @name='files']    text=UploadFile
+    Attach Driver
   Choose File                  locator=//input[@name='files']    file_path=${file_path} 
 
 
