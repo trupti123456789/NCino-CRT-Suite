@@ -3,7 +3,7 @@ Library                         QForce
 Library                         Collections
 Library                         RequestsLibrary
 Library                         JSONLibrary
-Library                         SeleniumLibrary
+Library                         QWeb
 Library                         QVision
 Library                         ../CustomLIbrary/Selenium.py
 Library                         OperatingSystem
@@ -542,7 +542,7 @@ Change the loan stege from Approval to Processing
     Choose File  
     ${relative_path}            Set Variable                tests/../Data/PO.pdf
     ${file_path}                Get File Path Based on Mode                             ${relative_path}              
-    Selenium.Upload File Lightning                          locator=//input[@name='files']                          file_path=${file_path}
+    Upload File Lightning                          locator=//input[@type='file']                          file_path=${file_path}
     
 
 
