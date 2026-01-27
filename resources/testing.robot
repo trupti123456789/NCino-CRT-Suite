@@ -13,12 +13,11 @@ Suite Setup                     Setup Browser
 Suite Teardown                  End Suite
 
 
-*** Test ***
+*** Test Cases *** 
 
 Adding Business Relationship for Customer Onboarding
-     [tags]                   nCino12
+     [tags]                   nCinotest
     [Documentation]             appstate to go directly to nCino / Relationships and create Onboarding
-    [Arguments]                 ${RelationshipData}
     Home
     Clicktext                   Loans
     Clicktext                   Relationship-HouseHold - HH - Real Estate
