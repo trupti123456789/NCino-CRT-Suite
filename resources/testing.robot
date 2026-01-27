@@ -14,9 +14,9 @@ Suite Teardown                  End Suite
 
 
 *** Test ***
-    ${RelationshipData}=        Data
 
 Adding Business Relationship for Customer Onboarding
+     [tags]                   nCino12
     [Documentation]             appstate to go directly to nCino / Relationships and create Onboarding
     [Arguments]                 ${RelationshipData}
     Home
