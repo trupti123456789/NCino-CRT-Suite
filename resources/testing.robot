@@ -24,3 +24,6 @@ Adding Business Relationship for Customer Onboarding
     Clicktext                   Relationship-HouseHold - HH - Real Estate
     Clicktext                   Document Manager
     Clicktext                   Borrower Financial Statement
+    ${relative_path}            Set Variable                tests/../Data/PO.pdf
+    ${file_path}                Get File Path Based on Mode                             ${relative_path}
+  Selenium.Upload File Lightning                        locator=//button[normalize-space()='Upload File']  file_path=${file_path}
