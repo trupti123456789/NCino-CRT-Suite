@@ -3,7 +3,7 @@ Library                         QForce
 Library                         Collections
 Library                         RequestsLibrary
 Library                         JSONLibrary
-Library                         QWeb
+Library                         SeleniumLibrary
 Library                         QVision
 Library                         ../CustomLIbrary/Selenium.py
 Library                         OperatingSystem
