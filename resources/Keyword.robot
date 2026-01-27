@@ -1,11 +1,11 @@
 *** Settings ***
 Library                         QForce
-
 Library                         Collections
 Library                         RequestsLibrary
 Library                         JSONLibrary
 Library                         QVision
 Library                        SeleniumLibrary
+Library                        ../CustomLIbrary/attach_driver.py
 Library                         OperatingSystem
 Resource                        ../resources/common.robot
 Resource                        ../resources/data.robot
