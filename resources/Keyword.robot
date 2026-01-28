@@ -394,7 +394,7 @@ On Product Package, assign Approver(s) and add Household Relationship
     Run Keyword                 Wait
 
 Configure Document Manager
-    [Arguments]                 ${RelationshipData}
+    [Arguments]                 ${RelationshipData}         ${relative_path}            ${file_path}
     Clicktext                   Product Package
     Clicktext                   ${Business_User_name}
     Clicktext                   Document Manager
@@ -413,6 +413,11 @@ Configure Document Manager
     VerifyAll                   Name,Category,Year
     Verifytext                  ${RelationshipData["Document_Placeholder_Name"]}
     Verifytext                  ${RelationshipData["Category"]}
+    Clicktext                   More Options
+    Execute JavaScript          script= Array.from(document.querySelectorAll('input[type="file"]')).forEach(function(input) { input.className = 'enabledAction'; })
+    Upload File                 Add File                    ${file_path}                anchor=Portal Options
+    
+
 
 Change the loan stege from Credit Underwriting to 
     [Arguments]                 ${RelationshipData}         ${stage}
@@ -542,6 +547,7 @@ Change the loan stege from Approval to Processing
     Verify LOS Stage Using VerifyElement                    Processing
 
 Document Manager Approval
+
     [Arguments]                 ${RelationshipData}         ${relative_path}            ${file_path}
     Clicktext                   More Options
     Execute JavaScript          script= Array.from(document.querySelectorAll('input[type="file"]')).forEach(function(input) { input.className = 'enabledAction'; })
