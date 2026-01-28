@@ -104,7 +104,7 @@
     },
     "Amortization Structure":{
       "Term Length":1,
-      "All-in Rate":5
+      "All-in Rate":5,
       "Term Unit":"Quarters",
       "Index":"1 mo - LIBOR (USD)",
       "Spread":1,
