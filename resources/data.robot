@@ -1,13 +1,6 @@
 *** Settings ***
-Library                     QForce
-Library                     Collections
-Library                     RequestsLibrary
 Library                     JSONLibrary
-Library                     QVision
-Library                     OperatingSystem
 Resource                    ../resources/common.robot
-Suite Setup                 Setup Browser
-Suite Teardown              End Suite
 
 *** Keywords ***
 Data
