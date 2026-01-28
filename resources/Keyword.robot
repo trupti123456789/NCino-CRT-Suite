@@ -189,7 +189,7 @@ Verify the Exposer and create the debts
     Sleep                       20
     VerifyText                  Total Exposure Summary
 
-Add Entity Involvement by adding Co-Borrowers/Guarantors to the Borrowing Structure and add Authorized Signers  
+Add Entity Involvement by adding CoBorrowers Guarantors to the Borrowing Structure and add Authorized Signers  
     [Arguments]                 ${RelationshipData}
     Clicktext                   Loans
     Clicktext                   ${Business_User_name}
@@ -373,7 +373,7 @@ Verify Covenant in loan
     Verifytext                  ${RelationshipData["CategoryCov"]}
     Verifytext                  ${RelationshipData["Covenant_Type"]}                    anchor=Category
 
-On Product Package, assign Approver(s) and add Household Relationship
+On Product Package assign Approver and add Household Relationship
     [Arguments]                 ${RelationshipData}
     Clicktext                   Product Package
     Clicktext                   ${Business_User_name}       partial_match=True
@@ -515,7 +515,7 @@ Regenerate Credit Memo with approval details
     ClickText                   Save
     Back
 
-Complete/Review HMDA and CRA Reporting
+Complete Review HMDA and CRA Reporting
     [Arguments]                 ${RelationshipData}
     ClickText                   Loans
     ClickText                   ${Business_User_name}
