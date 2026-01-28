@@ -86,7 +86,7 @@ Configure the Product Package Details and Assign Loan Officer to Loan Team
     ClickText                   Save
     Run Keyword                 Wait
 
-Update Loan Information, Pricing Required fields and Rate and Payment Structure
+Update Loan Information about Pricing Required fields and Rate and Payment Structure
     [Arguments]                 ${RelationshipData}
     Clicktext                   Loans
     Clicktext                   ${Business_User_name}
