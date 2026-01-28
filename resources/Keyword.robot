@@ -1,4 +1,7 @@
 *** Settings ***
+Library                         QForce
+Library                         QVision
+Library                         OperatingSystem
 Resource                        ../resources/common.robot
 Resource                        ../resources/data.robot
 Suite Setup                     Setup Browser
@@ -640,7 +643,7 @@ Change the loan stage from Approval to Processing
     Clicktext                   Mark Stage as Complete
     sleep                       3
     Verify LOS Stage Using VerifyElement                    Processing
-     
+
 Approved Product package
     [Arguments]                 ${RelationshipData}
     Clicktext                   Product Package
@@ -671,8 +674,8 @@ Rate and payment configuration
     ClickText                   ${Business_User_name}       partial_match=True
     ClickText                   Approved Details
     Verifytext                  Rate & Payment Structure
-    VerifyAll                   Loan Amount ,Loan Term ,Amortized Term ,First Payment Date 
-    
+    VerifyAll                   Loan Amount ,Loan Term ,Amortized Term ,First Payment Date
+
 
 
 
