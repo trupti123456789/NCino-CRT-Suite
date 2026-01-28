@@ -110,6 +110,6 @@
       "Spread":1,
       "Payment Type":"Interest Only",
       "Term Length":1,
-      "Payment Frequency":" Monthly"
+      "Payment Frequency":"Monthly"
     }
 }
