@@ -395,7 +395,7 @@ On Product Package, assign Approver(s) and add Household Relationship
 
 Configure Document Manager
     [Arguments]                 ${RelationshipData}         ${relative_path}            ${file_path}
-    Clicktext                   Product Package
+    ClickText                   Loans
     Clicktext                   ${Business_User_name}
     Clicktext                   Document Manager
     Run Keyword                 Wait
@@ -416,7 +416,10 @@ Configure Document Manager
     Clicktext                   More Options
     Execute JavaScript          script= Array.from(document.querySelectorAll('input[type="file"]')).forEach(function(input) { input.className = 'enabledAction'; })
     Upload File                 Add File                    ${file_path}                anchor=Portal Options
-    
+    RefreshPage
+
+
+
 
 
 Change the loan stege from Credit Underwriting to 
@@ -549,9 +552,46 @@ Change the loan stege from Approval to Processing
 Document Manager Approval
 
     [Arguments]                 ${RelationshipData}         ${relative_path}            ${file_path}
-    Clicktext                   More Options
-    Execute JavaScript          script= Array.from(document.querySelectorAll('input[type="file"]')).forEach(function(input) { input.className = 'enabledAction'; })
-    Upload File                 Add File                    ${file_path}                anchor=Portal Options
+    ClickText                   Loans
+    Clicktext                   Document Manager
+    Run Keyword                 Wait
+    ClickText                   In-File                     anchor= ${RelationshipData["Document_Placeholder_Name"]}
+    ClickText                   Approved
+    VerifyText                  Approved                    anchor=Status
+
+Rate and payment configuration
+    [Arguments]                 ${RelationshipData}
+    ClickText                   Loans
+    ClickText                   ${Business_User_name}       partial_match=True
+    ClickText                   Loan Information
+    ClickText                   Loan Structuring
+    Run Keyword                 Wait
+    VerifyText                  Amortization Structure
+    ClickText                   Create Structure
+    UseModal                    ON
+    ClickText                   Effective Date
+    ClickText                   Today
+    TypeText                    Term Length                 1
+    TypeText                    All-in Rate                 5
+    ClickText                   Term Unit
+    ClickText                   Quarters
+    ClickText                   Variable
+    ClickText                   Index
+    ClickText                   1 mo - LIBOR (USD)
+    TypeText                    Spread                      1
+    ClickText                   Repayment Structure
+    ClickText                   Payment Type
+    ClickText                   Interest Only
+    TypeText                    Term Length                 1
+    ClickText                   Effective Date
+    ClickText                   Today
+    ClickText                   Payment Frequency
+    ClickText                   Monthly
+    ClickText                   Save
+
+
+
+
 
 
 
