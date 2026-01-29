@@ -739,7 +739,7 @@ Change the loan stage from Closing to Boarding
     Verify LOS Stage Using VerifyElement                    ${stage}
     
 Change the loan stage from Boarding to Booked
-    [Arguments]                 ${RelationshipData}         ${stage}
+    [Arguments]                 ${RelationshipData}        
     ClickText                   Loans
     Clicktext                   ${Business_User_name}       partial_match=True
     Clicktext                   Mark Stage as Complete
