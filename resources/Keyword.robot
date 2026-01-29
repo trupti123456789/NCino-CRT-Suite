@@ -251,7 +251,7 @@ Add Collateral with Collateral Ownership in Loan
     ClickCheckbox               Select Item 1               on                          partial_match=False
     ClickText                   Continue
     ${CollateralID}             GetUrl
-    Set Local Variable          ${CollateralID}
+    Set Suite Variable          ${CollateralID}
 
 Add the Origination Fee
     [Arguments]                 ${RelationshipData}
@@ -345,12 +345,9 @@ Add Loan assistant Team Member in Loan
     Run Keyword                 Wait
     ClickText                   Continue
     Run Keyword                 Wait
-
-Update Credit Memo Relationship     
-Add additional Fees
 Upload documents to DocMan on the Collateral   
     [Arguments]                 ${RelationshipData}
-    #url
+    GoTo                        ${CollateralID}
     ClickText                   Document Manager
     ClickText                   Collateral Valuation
     ${relative_path}            Set Variable                tests/../Data/Collateral.png
