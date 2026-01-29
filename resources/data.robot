@@ -138,6 +138,8 @@ Verify LOS Stage Using VerifyElement
 
     VerifyElement           //span[@class\='current slds-path__stage']//following::span[text()\='${stage}']    20
 
+    Set Suite Variable    ${stage}
+
 
 
 
