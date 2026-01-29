@@ -713,7 +713,21 @@ Change the loan stage from Doc Prep to Closing
     sleep                       3
     Verify LOS Stage Using VerifyElement                    Closing
 
-
+Change the loan stage from Closing to Boarding
+    [Arguments]                 ${RelationshipData}         ${stage}
+    ClickText                   Loans
+    Clicktext                   ${Business_User_name}       partial_match=True
+    Clicktext                   Mark Stage as Complete
+    sleep                       3
+    Verify LOS Stage Using VerifyElement                    Boarding
+    
+Change the loan stage from Boarding to Booked
+    [Arguments]                 ${RelationshipData}         ${stage}
+    ClickText                   Loans
+    Clicktext                   ${Business_User_name}       partial_match=True
+    Clicktext                   Mark Stage as Complete
+    sleep                       3
+    Verify LOS Stage Using VerifyElement                    Booked   
 
 
 
