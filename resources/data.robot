@@ -26,6 +26,7 @@ Data
     ${Doc_Man}=             Set Variable                ${dataA["Document Manager"]}
     ${Compliance}=          Set Variable                ${dataA["Compliance"]}
     ${Structure}=           Set Variable                ${dataA["Amortization Structure"]}
+    ${Loan_Doc}=            Set Variable                ${dataA["Loan Document"]}
 
 
     ${RelationshipData}=    Create Dictionary
@@ -119,6 +120,14 @@ Data
     ...                     Payment_Type=${Structure["Payment Type"]}
     ...                     Term_Length=${Structure["Term Length"]}
     ...                     Payment_Frequency=${Structure["Payment Frequency"]}
+
+    ...                     LoanName=${Loan_Doc["LoanName"]}
+    ...                     ClosingChecklistName=${Loan_Doc["ClosingChecklistName"]}
+    ...                     Owner=${Loan_Doc["Owner"]}
+    ...                     Priority=${Loan_Doc["Priority"]}
+    ...                     Needed_By_Stage=${Loan_Doc["Needed By Stage"]}
+    ...                     -D_Portal_Doc_Type=${Loan_Doc["-D Portal Doc Type"]}
+    ...                     Review_Status=${Loan_Doc["Review Status"]}
 
 
 
