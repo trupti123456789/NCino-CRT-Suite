@@ -578,7 +578,7 @@ Loan submit for Approval
     VerifyText                  This Product Package is currently pending approval and locked for any edits
 
 Change the loan stage Final Review to Approval
-    [Arguments]                 ${RelationshipData}         ${stage}
+    [Arguments]                 ${RelationshipData}         
     ClickText                   Loans
     Clicktext                   ${Business_User_name}       partial_match=True
     sleep                       3
