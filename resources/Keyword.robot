@@ -289,7 +289,7 @@ financials and other documents and upload to Relationship and loan
     ClickText                   ${RelationshipData["RelationCategory"]}
     ClickElement                xpath=//input[@id="nameInputField"]
     ClickText                   ${RelationshipData["Placeholder_Name"]}
-    Typetext                    Year                        ${RelationshipData["RelYear"]}
+    Typetext                    Year                        ${RelationshipData["Rel_Year"]}
     Clicktext                   Save                        anchor=Cancel
     Usemodal                    Off
     Sleep                       5
