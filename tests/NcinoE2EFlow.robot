@@ -38,7 +38,7 @@ E2E Positive flow
     Verify Covenant in loan     ${RelationshipData}
     Compliance Questionnaires                               ${RelationshipData}
     On Product Package assign Approver and add Household Relationship           ${RelationshipData}
-    Configure Document Manager                              ${RelationshipData}                 ${relative_path}    ${file_path}
+    Configure Document Manager                              ${RelationshipData}             
     Change the loan stage from Credit Underwriting to Final Review              ${RelationshipData}    ${stage}
     # LOS Stage – Approval
     Review Loan and associated Product Package              ${RelationshipData}
@@ -53,7 +53,7 @@ E2E Positive flow
     Change the loan stage from Approval to Processing       ${RelationshipData}                 ${stage}
     # LOS Stage – Doc Prep
     Approved Product package    ${RelationshipData}
-    Document Manager Approval                               ${RelationshipData}                 ${relative_path}    ${file_path}
+    Document Manager Approval                               ${RelationshipData}               
     Change the loan stage from Processing to Doc Prep       ${RelationshipData}                 ${stage}
     # LOS Stage – Closing
     Rate and payment configuration                          ${RelationshipData}
