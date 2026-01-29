@@ -12,7 +12,7 @@ E2E Positive flow
     # LOS Stage – Qualification
     Adding Business Relationship for Customer Onboarding    ${RelationshipData}
     Create a Product package for Business Account           ${RelationshipData}
-    Create a new Loan for nCino application method and verify LOS Stage         ${RelationshipData}
+    Create a new Loan for nCino application method and verify LOS Stage         ${RelationshipData} 
     # LOS Stage – Proposal
     Configure the Product Package Details and Assign Loan Officer to Loan Team                  ${RelationshipData}
     Update Loan Information about Pricing Required fields and Rate and Payment Structure        ${RelationshipData}
@@ -24,12 +24,12 @@ E2E Positive flow
     Add the Origination Fee     ${RelationshipData}
     financials and other documents and upload to Relationship and loan          ${RelationshipData}
     Generate the Product Package Credit Memo and update Deal Summary and Relationship Narrative    ${RelationshipData}
-    Change the loan stage from Qualification to Proposal    ${RelationshipData}                 ${stage}
+    Change the loan stage from Qualification to Proposal    ${RelationshipData}                 
     # LOS Stage – Credit Underwriting
     Generate Term Sheet via Generate Forms in the Loan Magic Wand               ${RelationshipData}
     Add Loan assistant Team Member in Loan                  ${RelationshipData}
     Upload documents to DocMan on the Collateral            ${RelationshipData}
-    Change the loan stage from Proposal to Credit Underwriting                  ${RelationshipData}    ${stage}
+    Change the loan stage from Proposal to Credit Underwriting                  ${RelationshipData}    
     # LOS Stage – Final Review
     Verify and Review Household and Relationship Connection                     ${RelationshipData}
     Review Doc Man on the Loan and Borrower and Collateral                      ${RelationshipData}    ${CollateralID}
@@ -39,29 +39,29 @@ E2E Positive flow
     Compliance Questionnaires                               ${RelationshipData}
     On Product Package assign Approver and add Household Relationship           ${RelationshipData}
     Configure Document Manager                              ${RelationshipData}             
-    Change the loan stage from Credit Underwriting to Final Review              ${RelationshipData}    ${stage}
+    Change the loan stage from Credit Underwriting to Final Review              ${RelationshipData}   
     # LOS Stage – Approval
     Review Loan and associated Product Package              ${RelationshipData}
     Dealing with Loan Facilities                            ${RelationshipData}
     Loan submit for Approval    ${RelationshipData}
-    Change the loan stage Final Review to Approval          ${RelationshipData}                 ${stage}
+    Change the loan stage Final Review to Approval          ${RelationshipData}                
     # LOS Stage – Processing
     Loan Approver by assign User                            ${RelationshipData}
     Update the Origination Fee                              ${RelationshipData}
     Regenerate Credit Memo with approval details            ${RelationshipData}
     Complete Review HMDA and CRA Reporting                  ${RelationshipData}
-    Change the loan stage from Approval to Processing       ${RelationshipData}                 ${stage}
+    Change the loan stage from Approval to Processing       ${RelationshipData}                
     # LOS Stage – Doc Prep
     Approved Product package    ${RelationshipData}
     Document Manager Approval                               ${RelationshipData}               
-    Change the loan stage from Processing to Doc Prep       ${RelationshipData}                 ${stage}
+    Change the loan stage from Processing to Doc Prep       ${RelationshipData}                 
     # LOS Stage – Closing
     Rate and payment configuration                          ${RelationshipData}
     Configure the Loan Document                             ${RelationshipData}
-    Change the loan stage from Doc Prep to Closing          ${RelationshipData}                 ${stage}
+    Change the loan stage from Doc Prep to Closing          ${RelationshipData}                 
     # LOS Stage – Boarding
-    Change the loan stage from Closing to Boarding          ${RelationshipData}                 ${stage}
+    Change the loan stage from Closing to Boarding          ${RelationshipData}                
     # LOS Stage – Booked
-    Change the loan stage from Boarding to Booked           ${RelationshipData}                 ${stage}
+    Change the loan stage from Boarding to Booked           ${RelationshipData}                 
 
 
