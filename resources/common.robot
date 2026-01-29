@@ -42,7 +42,7 @@ Home
 
 Wait
     [Documentation]             It will pause the test case for perticular secend
-    Sleep                       10
+    Sleep                       15
 
 Generate Unique Name
     [Arguments]                 ${base_name}
