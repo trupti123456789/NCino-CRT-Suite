@@ -120,5 +120,10 @@
       "Needed By Stage":"Closing",
       "-D Portal Doc Type":"R",
       "Review Status":"Approved"
+    },
+    "RelDocumentManager":{
+      "Relationship Category":"Approval Documents",
+     "Placeholder Name":"Credit Memo",
+     "Rel Year":2026
     }
 }
