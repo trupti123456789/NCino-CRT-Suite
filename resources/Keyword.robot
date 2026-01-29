@@ -105,7 +105,7 @@ Update Loan Information about Pricing Required fields and Rate and Payment Struc
     ClickText                   Save
     Run Keyword                 Wait
     ClickText                   Loan Structuring
-     Run Keyword                 Wait
+    Run Keyword                 Wait
     VerifyAll                   Loan Information from Details,Loan Calculated Fields
     VerifyText                  Amortization Structure
     ClickText                   Create Structure
@@ -251,7 +251,7 @@ Add Collateral with Collateral Ownership in Loan
     ClickCheckbox               Select Item 1               on                          partial_match=False
     ClickText                   Continue
     ${CollateralID}             GetUrl
-    Set Local Variable           ${CollateralID} 
+    Set Local Variable          ${CollateralID}
 
 Add the Origination Fee
     [Arguments]                 ${RelationshipData}
@@ -277,16 +277,16 @@ financials and other documents and upload to Relationship and loan
     ClickText                   Document Manager
     Run Keyword                 Wait
     Execute JavaScript          script= Array.from(document.querySelectorAll('input[type="file"]')).forEach(function(input) { input.className = 'enableAction'; })
-    Upload File                 Upload Files                ${file_path}                anchor=Add Placeholder     
+    Upload File                 Upload Files                ${file_path}                anchor=Add Placeholder
     Sleep                       5
-    RefreshPage               
+    RefreshPage
     ClickText                   Loans
     ClickText                   ${Business_User_name}       partial_match=True
     ClickText                   Document Manager
     ${relative_path}            Set Variable                tests/../Data/loan.png
     ${file_path}                Get File Path Based on Mode                             ${relative_path}
     Execute JavaScript          script= Array.from(document.querySelectorAll('input[type="file"]')).forEach(function(input) { input.className = 'enableAction'; })
-    Upload File                 Upload Files                ${file_path}                
+    Upload File                 Upload Files                ${file_path}
     RefreshPage
 Generate the Product Package Credit Memo and update Deal Summary and Relationship Narrative
     [Arguments]                 ${RelationshipData}
@@ -324,7 +324,7 @@ Generate Term Sheet via Generate Forms in the Loan Magic Wand
     ClickText                   Generate Forms
     ClickText                   Generate
     Run Keyword                 Wait
-    #${Dfile_path}=              Verify File Download        timeout=30
+    #${Dfile_path}=             Verify File Download        timeout=30
 
 
 Add Loan assistant Team Member in Loan   
@@ -384,7 +384,7 @@ Verify and Review Household and Relationship Connection
     VerifyField                 Relationship Type           ${RelationshipData["Type2"]}
 
 Review Doc Man on the Loan and Borrower and Collateral   
-    [Arguments]                 ${RelationshipData}    ${CollateralID}
+    [Arguments]                 ${RelationshipData}         ${CollateralID}
     ClickText                   Relationships
     Clicktext                   ${Business_User_name}       partial_match=True
     ClickText                   Document Manager
@@ -401,7 +401,7 @@ Review Doc Man on the Loan and Borrower and Collateral
     QVision.ClickText           Cancel
     VerifyText                  File Staging
     VerifyText                  loan.png
-    GoTo                         ${CollateralID}
+    GoTo                        ${CollateralID}
     ClickText                   Document Manager
     ClickText                   Collateral Valuations
     VerifyText                  Collateral.png
@@ -458,19 +458,19 @@ Compliance Questionnaires
     Run Keyword                 Wait
     Clicktext                   HMDA Eligibility
     DropDown                    Is the loan or line of credit secured by a lien on a dwelling?                      ${RelationshipData["Question1"]}
-    DropDown                    Is the loan temporary financing? (i.e., designed to be replaced by a permanent financing)    ${RelationshipData["Question2"]}
+    DropDown                    Is the loan temporary financing? (i.e., designed to be replaced by a permanent financing)            ${RelationshipData["Question2"]}
     DropDown                    I certify that this loan IS NOT HMDA Reportable.        ${RelationshipData["Question3"]}
     ClickText                   Continue
     DropDown                    Is any borrower, co-borrower, or guarantor an executive officer, director, or principal shareholder of that bank, of a bank holding company of which the member bank is a subsidiary, and of any other subsidiary of that bank holding company?    ${RelationshipData["Question4"]}
     DropDown                    If any borrower, co-borrower, or guarantor of this loan is an employee of the bank or any affiliates, I certify I have indicated this is an "Employee Loan".    ${RelationshipData["Question5"]}
-    #DropDown                    I certify this loan has been marked as "Reg O Reportable".                          ${RelationshipData["Question6"]}
+    #DropDown                   I certify this loan has been marked as "Reg O Reportable".                          ${RelationshipData["Question6"]}
     ClickText                   Continue
     Sleep                       5
     ClickText                   Continue
     Sleep                       5
     ClickText                   Continue
     Sleep                       5
-    Dropdown                    Will this loan be used for construction of:                        A 1-4 Family Residence
+    Dropdown                    Will this loan be used for construction of:             A 1-4 Family Residence
     ClickText                   Continue
     Sleep                       5
     DropDown                    Is this loan HMDA reportable?                           ${RelationshipData["Question1"]}
@@ -522,7 +522,7 @@ Configure Document Manager
     VerifyAll                   Name,Category,Year
     Verifytext                  ${RelationshipData["Document_Placeholder_Name"]}
     Verifytext                  ${RelationshipData["Category"]}
-     ${relative_path}            Set Variable                tests/../Data/PO.pdf
+    ${relative_path}            Set Variable                tests/../Data/PO.pdf
     ${file_path}                Get File Path Based on Mode                             ${relative_path}
     Clicktext                   More Options
     Execute JavaScript          script= Array.from(document.querySelectorAll('input[type="file"]')).forEach(function(input) { input.className = 'enabledAction'; })
@@ -541,7 +541,7 @@ Review Loan and associated Product Package
     [Arguments]                 ${RelationshipData}
     ClickText                   Loans
     Clicktext                   ${Business_User_name}       partial_match=True          #Loan
-    VerifyElementText           //p[text()\='Relationship']/following::p[1]    ${Business_User_name}      partial_match=True    #Relationship
+    VerifyElementText           //p[text()\='Relationship']/following::p[1]             ${Business_User_name}       partial_match=True    #Relationship
     VerifyElement               //a[contains(text(),'PP')]                              #Product package
 
 Dealing with Loan Facilities
@@ -550,13 +550,13 @@ Dealing with Loan Facilities
     Clicktext                   Product Package
     Clicktext                   ${Business_User_name}       partial_match=True
     Clicktext                   Loan Facilities             anchor=Fees
-    VerifyElementText           //p[text()\='Number of Reviewable Loan Facilities']/following::lightning-formatted-number[1]    0
+    VerifyElementText           //p[text()\='Number of Reviewable Loan Facilities']/following::lightning-formatted-number[1]         0
     Verifytext                  All Facilities
     Clickelement                xpath=//button[text()='Edit']
     ClickCheckbox               Is Review Ready             on
     Clicktext                   Save
     Refreshpage
-    VerifyElementText           //p[text()\='Number of Reviewable Loan Facilities']/following::lightning-formatted-number[1]    1
+    VerifyElementText           //p[text()\='Number of Reviewable Loan Facilities']/following::lightning-formatted-number[1]         1
 
 Loan submit for Approval
     [Arguments]                 ${RelationshipData}
@@ -667,22 +667,22 @@ Document Manager Approval
     ClickText                   Approved
     VerifyText                  Approved                    anchor=Status
     Run Keyword                 Wait
-    
+
 Change the loan stage from Processing to Doc Prep
     [Arguments]                 ${RelationshipData}         ${stage}
     ClickText                   Loans
     Clicktext                   ${Business_User_name}       partial_match=True
     Clicktext                   Mark Stage as Complete
     sleep                       3
-    Verify LOS Stage Using VerifyElement                    Doc Prep         
+    Verify LOS Stage Using VerifyElement                    Doc Prep
 
 Rate and payment configuration
     [Arguments]                 ${RelationshipData}
     ClickText                   Loans
     ClickText                   ${Business_User_name}       partial_match=True
     ClickText                   Approved Details
-    Verifytext                   Payment Structure
-    Verifytext                   Rate Structure
+    Verifytext                  Payment Structure
+    Verifytext                  Rate Structure
     VerifyAll                   Sequence,Effective Date,Term Length,Term Unit
 
 Change the loan stage from Doc Prep to Closing
@@ -691,40 +691,34 @@ Change the loan stage from Doc Prep to Closing
     Clicktext                   ${Business_User_name}       partial_match=True
     Clicktext                   Mark Stage as Complete
     sleep                       3
-    Verify LOS Stage Using VerifyElement                    Closing    
+    Verify LOS Stage Using VerifyElement                    Closing
 
 Configure the Loan Document
-    [Arguments]                 ${RelationshipData}  
-    LaunchApp    Loan Documents
-    ClickText    New
-    UseModal    On
-    TypeText    *Name    Test Loan Doc
-    ComboBox    Search Loans...    _ Facebook 1769670933 - Term Loan - $7,600,000.00
-    ClickText    Select a date for Date    anchor=Approval Date
-    ClickText    Today
-    ComboBox    Search People...    Satish R
-    ClickText    Search Closing Checklists...
-    ClickText    New Closing Checklist
-    TypeText    *Name    TEst Closing Checklist    anchor=Name
-    ComboBox    Search DocManagers...    Account
-    PickList    Owner    Closer
-    PickList    Priority    Medium
-    PickList    Needed By Stage    Closing
-    ClickCheckbox    Attorney    on
-    ClickText    Save    anchor=Save & New
-    UseModal    Off
-    ClickText    Clear Closing Checklist Selection
-    ClickText    Search Closing Checklists...
-    ClickText    New Closing Checklist
-    UseModal    On
-    ClickText    Cancel    anchor=Save & New
-    ComboBox    Search Closing Checklists...    TEst Closing Checklist
-    PickList    Priority    Medium
-    PickList    -D Portal Doc Type    --None--
-    PickList    -D Portal Doc Type    R
-    PickList    Review Status    Approved
-    ClickText    Save    partial_match=False
-    UseModal    Off
+    [Arguments]                 ${RelationshipData}
+    LaunchApp                   Loan Documents
+    ClickText                   New
+    UseModal                    On
+    TypeText                    *Name                       ${RelationshipData["LoanName"]}
+    ComboBox                    Search Loans...             ${Business_User_name}      partial_match=True
+    ClickText                   Select a date for Date      anchor=Approval Date
+    ClickText                   Today
+    ComboBox                    Search People...            ${RelationshipData["User"]}
+    ClickText                   Search Closing Checklists...
+    TypeText                    *Name                       ${RelationshipData["ClosingChecklistName"]}             anchor=Name
+    ComboBox                    Search DocManagers...       Account
+    PickList                    Owner                       ${RelationshipData["Owner"]}
+    PickList                    Priority                    ${RelationshipData["Priority"]}
+    PickList                    Needed By Stage             ${RelationshipData["Needed_By_Stage"]}
+    ClickCheckbox               Attorney                    on
+    ClickText                   Save                        anchor=Save & New
+    UseModal                    Off
+    ComboBox                    Search Closing Checklists...                            ${RelationshipData["ClosingChecklistName"]}
+    PickList                    Priority                    Medium
+    PickList                    -D Portal Doc Type          --None--
+    PickList                    -D Portal Doc Type          ${RelationshipData["-D_Portal_Doc_Typ"]}
+    PickList                    Review Status               ${RelationshipData["Review_StatuS"]}
+    ClickText                   Save                        partial_match=False
+    UseModal                    Off
 
 
 
