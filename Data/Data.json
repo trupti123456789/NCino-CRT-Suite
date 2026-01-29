@@ -111,5 +111,14 @@
       "Payment Type":"Interest Only",
       "Term Length":1,
       "Payment Frequency":"Monthly"
+    },
+    "Loan Document":{
+      "LoneName":"Test Loan Doc",
+      "ClosingChecklistName":"TEst Closing Checklist",
+      "Owner":"Closer",
+      "Priority":"Medium",
+      "Needed By Stage":"Closing",
+      "-D Portal Doc Type":"R",
+      "Review Status":"Approved"
     }
 }
