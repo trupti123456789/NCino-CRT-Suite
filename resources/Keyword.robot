@@ -286,6 +286,7 @@ financials and other documents and upload to Relationship and loan
     Run Keyword                 Wait
     Clicktext                   Add Placeholder             delay=5
     Usemodal                    on
+    Sleep                       3
     ClickElement                xpath=//input[@id="docTypeInputField"]
     ClickText                   ${RelationshipData["Relation_Category"]}
     ClickElement                xpath=//input[@id="nameInputField"]
