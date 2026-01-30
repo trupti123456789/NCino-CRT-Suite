@@ -249,6 +249,8 @@ Add Collateral with Collateral Ownership in Loan
     ClickText                   Save Pledged Collateral
     Run Keyword                 Wait
     ClickText                   COL                         partial_match=True
+    SwitchWindow                NEW
+    Sleep                       2s      # 
     ${CollateralID}             GetUrl
     Set Suite Variable          ${CollateralID}
     SwitchWindow                1
