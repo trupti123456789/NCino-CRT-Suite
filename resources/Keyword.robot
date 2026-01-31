@@ -548,7 +548,7 @@ On Product Package assign Approver and add Household Relationship
     VerifyText                  Approver 1
     Clickelement                xpath=//label[text()='Approver 1']//following::lightning-helptext//following-sibling::div//input
     Sleep                       3
-    Clicktext                  Coapdo Admin                             anchor=Approver1 partial_match=False
+    Clicktext                  Copado Admin                             anchor=Approver1 partial_match=False
     Clickelement                xpath=//label[text()='Approver 2']//following::lightning-helptext//following-sibling::div//input
     Clicktext                   ${RelationshipData["User"]}                             anchor=Approver 2
     Verifytext                  Level 3 Approval
