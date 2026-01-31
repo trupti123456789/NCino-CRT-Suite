@@ -212,8 +212,8 @@ Add Entity Involvement by adding CoBorrowers Guarantors to the Borrowing Structu
     Clicktext                   ${Business_User_name}
     Run Keyword                 Wait
     Clicktext                   Borrowing Structure
-    Sleep                       3
-    ClickText                   Add Entity Involvement
+    Run Keyword                 Wait
+    ClickText                   Add     Entity Involvement
     UseModal                    On
     ClickCheckbox               Select ${Household_User_name}                           on                          partial_match=false
     ClickCheckbox               Select all                  on
