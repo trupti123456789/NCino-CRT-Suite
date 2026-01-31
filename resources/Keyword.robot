@@ -544,16 +544,16 @@ On Product Package assign Approver and add Household Relationship
     Verifytext                  Package Information
     Clicktext                   Assign Approvers            partial_match=False         anchor=Product Package Details
     Run Keyword                 Wait
-    Verifytext                  Level 1 Approval
-    VerifyText                  Approver 1
-    Clickelement                xpath=//label[text()='Approver 1']//following::lightning-helptext//following-sibling::div//input
-    Sleep                       3
-    Clicktext                  Copado Admin                             anchor=Approver1 partial_match=False
     Clickelement                xpath=//label[text()='Approver 2']//following::lightning-helptext//following-sibling::div//input
     Clicktext                   ${RelationshipData["User"]}                             anchor=Approver 2
     Verifytext                  Level 3 Approval
     Clickelement                xpath=//label[text()='Approval Committee']//parent::span//following-sibling::div/lightning-base-combobox//button
     Clicktext                   ${RelationshipData["Approval_Committee"]}               anchor=Approver 3
+    Verifytext                  Level 1 Approval
+    VerifyText                  Approver 1
+    Clickelement                xpath=//label[text()='Approver 1']//following::lightning-helptext//following-sibling::div//input
+    Sleep                       3
+    Clicktext                  ${RelationshipData["User"]}                                    anchor=Approver1 partial_match=False
     Clicktext                   Save                        anchor=Cancel
     Run Keyword                 Wait
 
