@@ -565,6 +565,7 @@ Configure Document Manager
     Run Keyword                 Wait
     Clicktext                   Add Placeholder             delay=5
     Usemodal                    on
+    Sleep                       5
     ClickElement                xpath=//input[@id="docTypeInputField"]
     ClickText                   ${RelationshipData["Category"]}
     ClickElement                xpath=//input[@id="nameInputField"]
