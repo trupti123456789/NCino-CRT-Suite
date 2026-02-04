@@ -218,7 +218,7 @@ Add Entity Involvement by adding CoBorrowers Guarantors to the Borrowing Structu
     Run Keyword                 Wait
     Clicktext                   Borrowing Structure
     Run Keyword                 Wait
-    ClickText                   Add     Entity Involvement
+    ClickText                   Add                         Entity Involvement
     UseModal                    On
     ClickCheckbox               Select ${Household_User_name}                           on                          partial_match=false
     ClickCheckbox               Select all                  on
@@ -285,7 +285,7 @@ Add the Origination Fee
     Run Keyword                 Wait
 
 
-financials and other documents and upload to Relationship and loan    
+Financials and other documents and upload to Relationship and loan    
     [Arguments]                 ${RelationshipData}
     ClickText                   Relationships
     ClickText                   ${Business_User_name}       partial_match=True
@@ -359,7 +359,7 @@ Change the loan stage from Qualification to Proposal
     sleep                       3
     ${stage}=                   Set Variable                Proposal
     Verify LOS Stage Using VerifyElement                    ${stage}
-     Run Keyword                 Wait
+    Run Keyword                 Wait
 
 
 Generate Term Sheet via Generate Forms in the Loan Magic Wand
@@ -544,16 +544,17 @@ On Product Package assign Approver and add Household Relationship
     Verifytext                  Package Information
     Clicktext                   Assign Approvers            partial_match=False         anchor=Product Package Details
     Run Keyword                 Wait
-    Clickelement                xpath=//label[text()='Approver 2']//following::lightning-helptext//following-sibling::div//input
-    Clicktext                   ${RelationshipData["User"]}                             anchor=Approver 2
-    Verifytext                  Level 3 Approval
-    Clickelement                xpath=//label[text()='Approval Committee']//parent::span//following-sibling::div/lightning-base-combobox//button
-    Clicktext                   ${RelationshipData["Approval_Committee"]}               anchor=Approver 3
-    Verifytext                  Level 1 Approval
     VerifyText                  Approver 1
     Clickelement                xpath=//label[text()='Approver 1']//following::lightning-helptext//following-sibling::div//input
+    Verifytext                  Level 1 Approval
+    Clicktext                   ${RelationshipData["Copado_User"]}                      anchor=Approver1 partial_match=False
     Sleep                       3
-    Clicktext                  ${RelationshipData["User"]}                                    anchor=Approver1 partial_match=False
+    Clickelement                xpath=//label[text()='Approver 2']//following::lightning-helptext//following-sibling::div//input
+    Clicktext                   ${RelationshipData["User"]}                             anchor=Approver 2
+    Verifytext                  Level 2 Approval
+    Sleep                       3
+    Clickelement                xpath=//label[text()='Approval Committee']//parent::span//following-sibling::div/lightning-base-combobox//button
+    Clicktext                   ${RelationshipData["Approval_Committee"]}               anchor=Approver 3
     Clicktext                   Save                        anchor=Cancel
     Run Keyword                 Wait
 
@@ -655,13 +656,13 @@ Loan Approver by assign User
     Back
     Run Keyword                 Wait
 
-# Change the loan stage Final Review to Approval
-#     [Arguments]                 ${RelationshipData}
-#     ClickText                   Loans
-#     Clicktext                   ${Business_User_name}       partial_match=True
-#     sleep                       3
-#     ${stage}=                   Set Variable                Processing
-#     Verify LOS Stage Using VerifyElement                    ${stage}
+    # Change the loan stage Final Review to Approval
+    #                           [Arguments]                 ${RelationshipData}
+    #                           ClickText                   Loans
+    #                           Clicktext                   ${Business_User_name}       partial_match=True
+    #                           sleep                       3
+    #                           ${stage}=                   Set Variable                Processing
+    #                           Verify LOS Stage Using VerifyElement                    ${stage}
 Update the Origination Fee
     [Arguments]                 ${RelationshipData}
     ClickText                   Loans
