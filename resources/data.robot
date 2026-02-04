@@ -62,6 +62,7 @@ Data
     ...                     Tertiary_Source_of_Repayment=${Loan_Info["Tertiary Source of Repayment"]}
     ...                     Loan_Amount=${Loan_Info["Loan Amount"]}
     ...                     User=${Loan_Info["User"]}
+    ...                     Copado_User=${Loan_Info["Copado User"]}
     ...                     Role=${Loan_Info["Role"]}
 
     ...                     Borrower_Type=${Entity_Inv["Borrower Type"]}
