@@ -538,6 +538,7 @@ Compliance Questionnaires
 
 On Product Package assign Approver and add Household Relationship
     [Arguments]                 ${RelationshipData}
+    Home
     Clicktext                   Product Package
     Clicktext                   ${Business_User_name}       partial_match=True
     VerifyText                  Items required to submit for approval:
@@ -547,11 +548,11 @@ On Product Package assign Approver and add Household Relationship
     VerifyText                  Approver 1
     Clickelement                xpath=//label[text()='Approver 1']//following::lightning-helptext//following-sibling::div//input
     Verifytext                  Level 1 Approval
-    Clicktext                   ${RelationshipData["Copado_User"]}                      anchor=Approver1 partial_match=False
+    ClickElement                  xpath=//div[@data-selection="${RelationshipData['User']}"]
     Sleep                       3
-    Clickelement                xpath=//label[text()='Approver 2']//following::lightning-helptext//following-sibling::div//input
-    Clicktext                   ${RelationshipData["User"]}                             anchor=Approver 2
+    #Clickelement                xpath=//label[text()='Approver 2']//following::lightning-helptext//following-sibling::div//input
     Verifytext                  Level 2 Approval
+    #Clicktext                   ${RelationshipData["User"]}                             anchor=Approver 2    partial_match=False
     Sleep                       3
     Clickelement                xpath=//label[text()='Approval Committee']//parent::span//following-sibling::div/lightning-base-combobox//button
     Clicktext                   ${RelationshipData["Approval_Committee"]}               anchor=Approver 3
