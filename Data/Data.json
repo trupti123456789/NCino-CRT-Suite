@@ -43,7 +43,8 @@
       "Tertiary Source of Repayment":"Lease Income",
       "Loan Amount":7600000,
       "Role":"Loan Assistant",
-      "User":"Satish R"
+      "User":"Satish R",
+      "Copado User":"Copado Admin"
     },
     "EntityInvolvement": {
       "Borrower Type": "Borrower",
