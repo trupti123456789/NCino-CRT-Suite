@@ -642,7 +642,7 @@ Approved Product package
     ClickElement                xpath=//a[@data-ncino-element-id="PICKLIST-APPROVE_/_REJECT"]
     Run Keyword                 Wait
     TypeText                    Comments                    Approving Product Package
-    ClickText                   Approve
+    ClickElement                xpath=//input[@value="Approve"]
     Run Keyword                 Wait
 
 
