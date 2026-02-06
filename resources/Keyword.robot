@@ -766,8 +766,8 @@ Rate and payment configuration
     ClickText                   Loans
     ClickText                   ${Business_User_name}       partial_match=True
     ClickText                   Approved Details
-    Verifytext                  Payment Structure
-    Verifytext                  Rate Structure
+    Verifytext                  Rate & Payment Structure
+    ClickText                   Rate & Payment Structure
     VerifyAll                   Sequence,Effective Date,Term Length,Term Unit
     Run Keyword                 Wait
 
